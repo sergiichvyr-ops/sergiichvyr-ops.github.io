@@ -13,27 +13,34 @@
 <meta name="theme-color" content="#2B2340">
 <link rel="icon" type="image/png" href="/favicon.png">
 <style>
-:root{--ink:#2B2340;--text:#ece8f7;--muted:#b3abcf;--gold:#f2c66d}
+@font-face{font-family:Nunito;src:url(/fonts/Nunito-Regular.woff2) format("woff2");font-weight:400;font-display:swap}
+@font-face{font-family:Nunito;src:url(/fonts/Nunito-Bold.woff2) format("woff2");font-weight:700;font-display:swap}
+@font-face{font-family:Nunito;src:url(/fonts/Nunito-ExtraBold.woff2) format("woff2");font-weight:800;font-display:swap}
+:root{--ink:#2B2340;--text:#ece8f7;--muted:#b3abcf;--gold:#D9A441}
 *{box-sizing:border-box}
 html,body{margin:0}
-body{font:16px/1.6 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;color:var(--text);min-height:100vh;
+body{font:17px/1.65 Nunito,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;color:var(--text);min-height:100vh;
 background:radial-gradient(1px 1px at 12% 18%,#fff9,transparent),radial-gradient(1px 1px at 72% 12%,#fff8,transparent),
 radial-gradient(1.5px 1.5px at 40% 30%,#fffa,transparent),radial-gradient(1px 1px at 88% 44%,#fff7,transparent),
 radial-gradient(1px 1px at 25% 62%,#fff6,transparent),radial-gradient(1.5px 1.5px at 60% 75%,#fff8,transparent),
 radial-gradient(1px 1px at 8% 88%,#fff6,transparent),radial-gradient(1px 1px at 93% 86%,#fff7,transparent),
 radial-gradient(ellipse at top,#3a2f58 0%,var(--ink) 45%,#120e1d 100%) fixed}
 .wrap{max-width:960px;margin:0 auto;padding:0 20px}
-header{padding:56px 0 24px;text-align:center}
-header h1{margin:0;font-size:clamp(28px,5vw,42px);letter-spacing:.5px}
+header{padding:80px 0 40px;text-align:center}
+header h1{margin:0;font-weight:800;font-size:clamp(28px,5vw,42px);letter-spacing:.5px}
 header p{margin:8px 0 0;color:var(--muted)}
-.games{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px;padding:24px 0 48px}
-.card{background:#ffffff0d;border:1px solid #ffffff1f;border-radius:20px;padding:24px;backdrop-filter:blur(4px);display:flex;flex-direction:column;gap:12px}
+.games{display:grid;grid-template-columns:1fr 1fr;gap:32px;padding:24px 0 72px}
+@media(max-width:700px){.games{grid-template-columns:1fr;gap:28px}header{padding:56px 0 24px}}
+.card{background:#ffffff0d;border:1px solid #ffffff1f;border-radius:20px;padding:32px;display:flex;flex-direction:column;gap:16px}
+.tc{background:linear-gradient(160deg,#2B2340,#1c1630);border-color:#D9A44166}.tc .badge{font-weight:700;border-color:#D9A441;color:#D9A441}.tc h2{color:#F3D9A0}
+.gv{background:linear-gradient(170deg,#0D0B2B 0%,#2A1F5C 55%,#5B2E6E 100%);border-color:#F2C46D55}.gv .badge{font-weight:700;border-color:#F2C46D;color:#F2C46D}.gv h2{color:#F4F1FF}.gv .feat{color:#F7C6D9}.gv a{color:#E3CCFF}
+.pp{font-size:13px;margin:4px 0 0}
 .top{display:flex;align-items:center;gap:16px}
 .card img{width:88px;height:88px;border-radius:20px;box-shadow:0 6px 24px #0008}
-.card h2{margin:0;font-size:24px}
+.card h2{margin:0;font-size:26px;font-weight:800}
 .pitch{margin:0;color:var(--text)}
 .feat{margin:0;color:var(--muted);font-size:14px}
-.badge{align-self:flex-start;border:1px solid var(--gold);color:var(--gold);border-radius:999px;padding:4px 12px;font-size:13px;font-weight:600}
+.badge{font-weight:700;align-self:flex-start;border:1px solid var(--gold);color:var(--gold);border-radius:999px;padding:4px 12px;font-size:13px;font-weight:600}
 a{color:#c9b8ff}
 footer{border-top:1px solid #ffffff1a;padding:24px 0 40px;text-align:center;color:var(--muted);font-size:14px}
 </style>
@@ -45,19 +52,19 @@ footer{border-top:1px solid #ffffff1a;padding:24px 0 40px;text-align:center;colo
 <p>Independent developer of small, thoughtful puzzle games.</p>
 </header>
 <main class="games">
-<article class="card">
+<article class="card tc">
 <div class="top"><img src="/img/tilecharm.png" alt="Tilecharm icon" width="88" height="88"><h2>Tilecharm</h2></div>
 <p class="pitch">A block-puzzle roguelite: place gem blocks on an 8×8 board, clear lines, pick charms and beat the boss.</p>
 <p class="feat">30 charms · Daily run · Heat levels</p>
 <span class="badge">Coming soon to Google Play</span>
-<a href="https://sergiichvyr-ops.github.io/glidevane-legal/tilecharm-privacy-policy.html">Privacy policy</a>
+<p class="pp"><a href="https://sergiichvyr-ops.github.io/glidevane-legal/tilecharm-privacy-policy.html">Privacy policy</a></p>
 </article>
-<article class="card">
+<article class="card gv">
 <div class="top"><img src="/img/glidevane.png" alt="Glidevane icon" width="88" height="88" loading="lazy"><h2>Glidevane</h2></div>
 <p class="pitch">A calm puzzle: launch gliders off the board while rotating brass vanes bend their paths.</p>
 <p class="feat">Daily puzzle · Always-solvable levels</p>
 <span class="badge">Coming soon to Google Play</span>
-<a href="https://sergiichvyr-ops.github.io/glidevane-legal/privacy-policy.html">Privacy policy</a>
+<p class="pp"><a href="https://sergiichvyr-ops.github.io/glidevane-legal/privacy-policy.html">Privacy policy</a></p>
 </article>
 </main>
 <footer>
