@@ -29,7 +29,8 @@ radial-gradient(ellipse at top,#3a2f58 0%,var(--ink) 45%,#120e1d 100%) fixed}
 header{padding:80px 0 40px;text-align:center}
 header h1{margin:0;font-weight:800;font-size:clamp(28px,5vw,42px);letter-spacing:.5px}
 header p{margin:8px 0 0;color:var(--muted)}
-.games{display:grid;grid-template-columns:1fr 1fr;gap:32px;padding:24px 0 72px}
+.games{display:grid;grid-template-columns:1fr 1fr;gap:32px;padding:24px 0 40px}
+html{scroll-behavior:smooth}
 @media(max-width:700px){.games{grid-template-columns:1fr;gap:28px}header{padding:56px 0 24px}}
 .card{background:#ffffff0d;border:1px solid #ffffff1f;border-radius:20px;padding:32px;display:flex;flex-direction:column;gap:16px}
 .tc{background:linear-gradient(160deg,#2B2340,#1c1630);border-color:#D9A44166}.tc .badge{font-weight:700;border-color:#D9A441;color:#D9A441}.tc h2{color:#F3D9A0}
@@ -46,6 +47,16 @@ header p{margin:8px 0 0;color:var(--muted)}
 .badge{font-weight:700;align-self:flex-start;border:1px solid var(--gold);color:var(--gold);border-radius:999px;padding:4px 12px;font-size:13px;font-weight:600}
 a{color:#c9b8ff}
 footer{border-top:1px solid #ffffff1a;padding:24px 0 40px;text-align:center;color:var(--muted);font-size:14px}
+.testers{margin:0 0 72px;padding:36px 32px;background:linear-gradient(165deg,#ffffff12,#ffffff06);border:1px solid #ffffff26;border-radius:20px;scroll-margin-top:24px}
+.testers h2{margin:0 0 6px;font-size:clamp(24px,4vw,30px);font-weight:800;color:#F3D9A0}
+.testers .lead{margin:0 0 24px;color:var(--muted)}
+.steps{list-style:none;margin:0;padding:0;display:grid;gap:16px;counter-reset:s}
+.steps li{counter-increment:s;display:grid;grid-template-columns:40px 1fr;gap:14px;align-items:start;background:#120e1d66;border:1px solid #ffffff14;border-radius:16px;padding:18px}
+.steps li::before{content:counter(s);width:40px;height:40px;border-radius:50%;background:var(--gold);color:var(--ink);font-weight:800;display:flex;align-items:center;justify-content:center}
+.steps h3{margin:0 0 4px;font-size:18px;font-weight:800}.steps p{margin:0}
+.steps .pills{margin-top:10px}.steps .beta{background:#D9A441;color:#2B2340}.steps .beta.gvb{background:#FF8A7A;color:#0D0B2B}
+.note{margin:22px 0 0;color:var(--muted);font-size:15px}
+@media(max-width:700px){.testers{padding:26px 18px;margin-bottom:56px}.steps li{grid-template-columns:32px 1fr;gap:12px;padding:16px}.steps li::before{width:32px;height:32px}}
 </style>
 </head>
 <body>
@@ -59,17 +70,27 @@ footer{border-top:1px solid #ffffff1a;padding:24px 0 40px;text-align:center;colo
 <div class="top"><img src="/img/tilecharm.png" alt="Tilecharm icon" width="88" height="88"><h2>Tilecharm</h2></div>
 <p class="pitch">A block-puzzle roguelite: place gem blocks on an 8×8 board, clear lines, pick charms and beat the boss.</p>
 <p class="feat">30 charms · Daily run · Heat levels</p>
-<div class="pills"><span class="badge">Coming soon to Google Play</span><a class="beta" href="https://play.google.com/apps/testing/com.tilecharm.game" target="_blank" rel="noopener">Join the beta</a></div>
+<div class="pills"><span class="badge">Coming soon to Google Play</span><a class="beta" href="#beta">Join the beta</a></div>
 <p class="pp"><a href="/glidevane-legal/tilecharm-privacy-policy.html">Privacy policy</a></p>
 </article>
 <article class="card gv">
 <div class="top"><img src="/img/glidevane.png" alt="Glidevane icon" width="88" height="88" loading="lazy"><h2>Glidevane</h2></div>
 <p class="pitch">A calm puzzle: launch gliders off the board while rotating brass vanes bend their paths.</p>
 <p class="feat">Daily puzzle · Always-solvable levels</p>
-<div class="pills"><span class="badge">Coming soon to Google Play</span><a class="beta" href="https://play.google.com/apps/testing/com.glidevane.game" target="_blank" rel="noopener">Join the beta</a></div>
+<div class="pills"><span class="badge">Coming soon to Google Play</span><a class="beta" href="#beta">Join the beta</a></div>
 <p class="pp"><a href="/glidevane-legal/privacy-policy.html">Privacy policy</a></p>
 </article>
 </main>
+<section class="testers" id="beta" aria-labelledby="beta-title">
+<h2 id="beta-title">Become a beta tester</h2>
+<p class="lead">Help us get Tilecharm and Glidevane onto Google Play. It takes about two minutes to set up.</p>
+<ol class="steps">
+<li><div><h3>Join the Google Group</h3><p>One group covers both games.</p><div class="pills"><a class="beta" href="https://groups.google.com/g/prominenttestets" target="_blank" rel="noopener">Join the tester group</a></div></div></li>
+<li><div><h3>Opt in on each game's testing page</h3><p>Use the same Google account you joined the group with.</p><div class="pills"><a class="beta" href="https://play.google.com/apps/testing/com.tilecharm.game" target="_blank" rel="noopener">Tilecharm testing page</a><a class="beta gvb" href="https://play.google.com/apps/testing/com.glidevane.game" target="_blank" rel="noopener">Glidevane testing page</a></div></div></li>
+<li><div><h3>Install, play, and stay opted in for 14 days</h3><p>Install both games from Google Play, open them every few days, and stay opted in for at least 14 days. Google requires 14 days of closed testing before the games can launch publicly.</p></div></li>
+</ol>
+<p class="note">Found a bug or have an idea? We'd love your feedback and screenshots at <a href="mailto:prominentgamedev@gmail.com">prominentgamedev@gmail.com</a>. Thank you for helping!</p>
+</section>
 <footer>
 <p>Contact: <a href="mailto:prominentgamedev@gmail.com">prominentgamedev@gmail.com</a></p>
 <p>© 2026 Sergii Chvyr</p>
