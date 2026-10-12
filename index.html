@@ -34,6 +34,9 @@ header p{margin:8px 0 0;color:var(--muted)}
 .card{background:#ffffff0d;border:1px solid #ffffff1f;border-radius:20px;padding:32px;display:flex;flex-direction:column;gap:16px}
 .tc{background:linear-gradient(160deg,#2B2340,#1c1630);border-color:#D9A44166}.tc .badge{font-weight:700;border-color:#D9A441;color:#D9A441}.tc h2{color:#F3D9A0}
 .gv{background:linear-gradient(170deg,#0D0B2B 0%,#2A1F5C 55%,#5B2E6E 100%);border-color:#F2C46D55}.gv .badge{font-weight:700;border-color:#F2C46D;color:#F2C46D}.gv h2{color:#FF8A7A}.gv .feat{color:#F7C6D9}.gv a{color:#E3CCFF}
+.pills{display:flex;flex-wrap:wrap;gap:10px;align-items:center}.pills .badge{align-self:auto}
+.beta{display:inline-block;border-radius:999px;padding:4px 14px;font-size:13px;font-weight:700;text-decoration:none;color:#1c1630}.beta:hover{filter:brightness(1.1)}
+.tc .beta{background:#D9A441;color:#2B2340}.gv .beta{background:#FF8A7A;color:#0D0B2B}
 .pp{font-size:13px;margin:4px 0 0}
 .top{display:flex;align-items:center;gap:16px}
 .card img{width:88px;height:88px;border-radius:20px;box-shadow:0 6px 24px #0008}
@@ -56,14 +59,14 @@ footer{border-top:1px solid #ffffff1a;padding:24px 0 40px;text-align:center;colo
 <div class="top"><img src="/img/tilecharm.png" alt="Tilecharm icon" width="88" height="88"><h2>Tilecharm</h2></div>
 <p class="pitch">A block-puzzle roguelite: place gem blocks on an 8×8 board, clear lines, pick charms and beat the boss.</p>
 <p class="feat">30 charms · Daily run · Heat levels</p>
-<span class="badge">Coming soon to Google Play</span>
+<div class="pills"><span class="badge">Coming soon to Google Play</span><a class="beta" href="https://play.google.com/apps/testing/com.tilecharm.game" target="_blank" rel="noopener">Join the beta</a></div>
 <p class="pp"><a href="/glidevane-legal/tilecharm-privacy-policy.html">Privacy policy</a></p>
 </article>
 <article class="card gv">
 <div class="top"><img src="/img/glidevane.png" alt="Glidevane icon" width="88" height="88" loading="lazy"><h2>Glidevane</h2></div>
 <p class="pitch">A calm puzzle: launch gliders off the board while rotating brass vanes bend their paths.</p>
 <p class="feat">Daily puzzle · Always-solvable levels</p>
-<span class="badge">Coming soon to Google Play</span>
+<div class="pills"><span class="badge">Coming soon to Google Play</span><a class="beta" href="https://play.google.com/apps/testing/com.glidevane.game" target="_blank" rel="noopener">Join the beta</a></div>
 <p class="pp"><a href="/glidevane-legal/privacy-policy.html">Privacy policy</a></p>
 </article>
 </main>
