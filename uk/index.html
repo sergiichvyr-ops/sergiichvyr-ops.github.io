@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="uk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Невеликі вдумливі головоломки</title>
+<meta name="description" content="Невеликі вдумливі головоломки для Android: Tilecharm і Glidevane.">
+<link rel="canonical" href="https://prominentgame.com/uk/">
+<link rel="alternate" hreflang="en" href="https://prominentgame.com/">
+<link rel="alternate" hreflang="uk" href="https://prominentgame.com/uk/">
+<link rel="alternate" hreflang="x-default" href="https://prominentgame.com/">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="uk_UA">
+<meta property="og:locale:alternate" content="en_US">
+<meta property="og:url" content="https://prominentgame.com/uk/">
+<meta property="og:title" content="Невеликі вдумливі головоломки">
+<meta property="og:description" content="Невеликі вдумливі головоломки для Android: Tilecharm і Glidevane.">
+<meta property="og:image" content="https://prominentgame.com/og-card.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://prominentgame.com/og-card.png">
+<meta name="theme-color" content="#2B2340">
+<link rel="icon" type="image/png" href="/favicon.png">
+<style>
+@font-face{font-family:Nunito;src:url(/fonts/Nunito-Regular.ttf) format("truetype");font-weight:400;font-display:swap}
+@font-face{font-family:Nunito;src:url(/fonts/Nunito-Bold.ttf) format("truetype");font-weight:700;font-display:swap}
+@font-face{font-family:Nunito;src:url(/fonts/Nunito-ExtraBold.ttf) format("truetype");font-weight:800;font-display:swap}
+:root{--ink:#2B2340;--text:#ece8f7;--muted:#b3abcf;--gold:#D9A441}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{font:17px/1.65 Nunito,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;color:var(--text);min-height:100vh;
+background:radial-gradient(1px 1px at 12% 18%,#fff9,transparent),radial-gradient(1px 1px at 72% 12%,#fff8,transparent),
+radial-gradient(1.5px 1.5px at 40% 30%,#fffa,transparent),radial-gradient(1px 1px at 88% 44%,#fff7,transparent),
+radial-gradient(1px 1px at 25% 62%,#fff6,transparent),radial-gradient(1.5px 1.5px at 60% 75%,#fff8,transparent),
+radial-gradient(1px 1px at 8% 88%,#fff6,transparent),radial-gradient(1px 1px at 93% 86%,#fff7,transparent),
+radial-gradient(ellipse at top,#3a2f58 0%,var(--ink) 45%,#120e1d 100%) fixed}
+.wrap{max-width:960px;margin:0 auto;padding:0 20px}
+header{padding:80px 0 40px;text-align:center}
+header h1{margin:0;font-weight:800;font-size:clamp(28px,5vw,42px);letter-spacing:.5px}
+header p{margin:8px 0 0;color:var(--muted)}
+.games{display:grid;grid-template-columns:1fr 1fr;gap:32px;padding:24px 0 40px}
+html{scroll-behavior:smooth}
+.lang{display:flex;justify-content:flex-end;gap:6px;align-items:center;padding:16px 0 0;font-size:14px;font-weight:700;color:var(--muted)}
+.lang a{color:var(--muted);text-decoration:none;padding:2px 6px;border-radius:6px}.lang a:hover{color:var(--text)}.lang a[aria-current]{color:var(--gold)}
+header{padding-top:48px}
+@media(max-width:700px){.games{grid-template-columns:1fr;gap:28px}header{padding:56px 0 24px}}
+.card{background:#ffffff0d;border:1px solid #ffffff1f;border-radius:20px;padding:32px;display:flex;flex-direction:column;gap:16px}
+.tc{background:linear-gradient(160deg,#2B2340,#1c1630);border-color:#D9A44166}.tc .badge{font-weight:700;border-color:#D9A441;color:#D9A441}.tc h2{color:#F3D9A0}
+.gv{background:linear-gradient(170deg,#0D0B2B 0%,#2A1F5C 55%,#5B2E6E 100%);border-color:#F2C46D55}.gv .badge{font-weight:700;border-color:#F2C46D;color:#F2C46D}.gv h2{color:#FF8A7A}.gv .feat{color:#F7C6D9}.gv a{color:#E3CCFF}
+.pills{display:flex;flex-wrap:wrap;gap:10px;align-items:center}.pills .badge{align-self:auto}
+.beta{display:inline-block;border-radius:999px;padding:4px 14px;font-size:13px;font-weight:700;text-decoration:none;color:#1c1630}.beta:hover{filter:brightness(1.1)}
+.tc .beta{background:#D9A441;color:#2B2340}.gv .beta{background:#FF8A7A;color:#0D0B2B}
+.pp{font-size:13px;margin:4px 0 0}
+.top{display:flex;align-items:center;gap:16px}
+.card img{width:88px;height:88px;border-radius:20px;box-shadow:0 6px 24px #0008}
+.card h2{margin:0;font-size:26px;font-weight:800}
+.pitch{margin:0;color:var(--text)}
+.feat{margin:0;color:var(--muted);font-size:14px}
+.badge{font-weight:700;align-self:flex-start;border:1px solid var(--gold);color:var(--gold);border-radius:999px;padding:4px 12px;font-size:13px;font-weight:600}
+a{color:#c9b8ff}
+footer{border-top:1px solid #ffffff1a;padding:24px 0 40px;text-align:center;color:var(--muted);font-size:14px}
+.testers{margin:0 0 72px;padding:36px 32px;background:linear-gradient(165deg,#ffffff12,#ffffff06);border:1px solid #ffffff26;border-radius:20px;scroll-margin-top:24px}
+.testers h2{margin:0 0 6px;font-size:clamp(24px,4vw,30px);font-weight:800;color:#F3D9A0}
+.testers .lead{margin:0 0 24px;color:var(--muted)}
+.steps{list-style:none;margin:0;padding:0;display:grid;gap:16px;counter-reset:s}
+.steps li{counter-increment:s;display:grid;grid-template-columns:40px 1fr;gap:14px;align-items:start;background:#120e1d66;border:1px solid #ffffff14;border-radius:16px;padding:18px}
+.steps li::before{content:counter(s);width:40px;height:40px;border-radius:50%;background:var(--gold);color:var(--ink);font-weight:800;display:flex;align-items:center;justify-content:center}
+.steps h3{margin:0 0 4px;font-size:18px;font-weight:800}.steps p{margin:0}
+.steps .pills{margin-top:10px}.steps .beta{background:#D9A441;color:#2B2340}.steps .beta.gvb{background:#FF8A7A;color:#0D0B2B}
+.note{margin:22px 0 0;color:var(--muted);font-size:15px}
+.share{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin:18px 0 0}
+.share .label{color:var(--muted);font-size:15px}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.share .beta{background:#D9A441;color:#2B2340;border:0;font:inherit;font-size:13px;font-weight:700;line-height:inherit;cursor:pointer}
+.share .beta.fb{background:#ffffff1f;color:var(--text);border:1px solid #ffffff33}
+.share .beta:focus-visible{outline:2px solid #F3D9A0;outline-offset:2px}
+.share [hidden]{display:none}
+.feedback{margin:0 0 72px;padding:28px 32px;background:#ffffff0a;border:1px solid #ffffff1f;border-radius:20px;text-align:center;scroll-margin-top:24px}
+.feedback h2{margin:0 0 6px;font-size:clamp(22px,3.5vw,26px);font-weight:800;color:#F3D9A0}
+.feedback p{margin:0 auto;max-width:620px;color:var(--muted)}
+.feedback .pills{justify-content:center;margin-top:16px}.feedback .beta{background:#D9A441;color:#2B2340}.feedback .beta.alt{background:#ffffff1f;color:var(--text);border:1px solid #ffffff33}
+@media(max-width:700px){.testers{padding:26px 18px;margin-bottom:56px}.feedback{padding:24px 18px;margin-bottom:56px}.steps li{grid-template-columns:32px 1fr;gap:12px;padding:16px}.steps li::before{width:32px;height:32px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<nav class="lang" aria-label="Мова"><a href="/" hreflang="en" lang="en">EN</a><span aria-hidden="true">|</span><a href="/uk/" hreflang="uk" lang="uk" aria-current="page">УК</a></nav>
+<header>
+<h1>Невеликі вдумливі головоломки</h1>
+<p>Tilecharm і Glidevane — незабаром на Android.</p>
+</header>
+<main class="games">
+<article class="card tc">
+<div class="top"><img src="/img/tilecharm.png" alt="Іконка Tilecharm" width="88" height="88"><h2>Tilecharm</h2></div>
+<p class="pitch">Блоковий пазл-роґлайк: ставте блоки із самоцвітами на поле 8×8, очищуйте лінії, обирайте чари й перемагайте боса.</p>
+<p class="feat">30 чарів · Щоденний забіг · Рівні Жару</p>
+<div class="pills"><span class="badge">Незабаром у Google Play</span><a class="beta" href="#beta">Долучитися до бета-тесту</a></div>
+<p class="pp"><a href="/glidevane-legal/tilecharm-privacy-policy.html">Політика конфіденційності (англ.)</a></p>
+</article>
+<article class="card gv">
+<div class="top"><img src="/img/glidevane.png" alt="Іконка Glidevane" width="88" height="88" loading="lazy"><h2>Glidevane</h2></div>
+<p class="pitch">Спокійна головоломка: виводьте планери з поля, а латунні флюгери, що обертаються, змінюють їхні маршрути.</p>
+<p class="feat">Щоденна головоломка · Завжди розв’язні рівні</p>
+<div class="pills"><span class="badge">Незабаром у Google Play</span><a class="beta" href="#beta">Долучитися до бета-тесту</a></div>
+<p class="pp"><a href="/glidevane-legal/privacy-policy.html">Політика конфіденційності (англ.)</a></p>
+</article>
+</main>
+<section class="testers" id="beta" aria-labelledby="beta-title">
+<h2 id="beta-title">Долучайтеся до бета-тестування</h2>
+<p class="lead">Допоможіть нам випустити Tilecharm і Glidevane в Google Play. Усе налаштування займе близько двох хвилин.</p>
+<ol class="steps">
+<li><div><h3>Приєднайтеся до групи Google</h3><p>Одна група — для обох ігор.</p><p>Використовуйте особистий акаунт Gmail — той самий, що й на вашому телефоні. Робочі та навчальні акаунти часто блокуються.</p><div class="pills"><a class="beta" href="https://groups.google.com/g/prominenttestets" target="_blank" rel="noopener">Приєднатися до групи</a></div></div></li>
+<li><div><h3>Підтвердьте участь на сторінці тестування кожної гри</h3><p>Використовуйте той самий акаунт Google, з яким приєдналися до групи.</p><div class="pills"><a class="beta" href="https://play.google.com/apps/testing/com.tilecharm.game" target="_blank" rel="noopener">Тестування Tilecharm</a><a class="beta gvb" href="https://play.google.com/apps/testing/com.glidevane.game" target="_blank" rel="noopener">Тестування Glidevane</a></div></div></li>
+<li><div><h3>Установіть, грайте й залишайтеся в тестуванні 14 днів</h3><p>Установіть обидві гри з Google Play, відкривайте їх раз на кілька днів і не виходьте з тестування щонайменше 14 днів. Google вимагає 14 днів закритого тестування, перш ніж ігри стануть доступні всім.</p></div></li>
+</ol>
+<p class="note">Знайшли помилку чи маєте ідею? Будемо раді вашим відгукам і знімкам екрана на <a href="mailto:prominentgamedev@gmail.com">prominentgamedev@gmail.com</a>. Дякуємо за допомогу!</p>
+<div class="share" aria-label="Поділитися цією сторінкою">
+<span class="label">Знаєте когось, хто захоче потестувати?</span>
+<button type="button" class="beta" id="share-btn" hidden>Поділитися</button>
+<button type="button" class="beta" id="copy-btn" hidden>Копіювати посилання</button>
+<a class="beta fb" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fprominentgame.com%2Fuk%2F" target="_blank" rel="noopener noreferrer">Поділитися у Facebook</a>
+<span class="sr" id="copy-status" role="status" aria-live="polite"></span>
+</div>
+</section>
+<section class="feedback" id="feedback" aria-labelledby="feedback-title">
+<h2 id="feedback-title">Відгуки</h2>
+<p>Ми читаємо кожне повідомлення. Розкажіть, що вам подобається, що здається складним і що ви хотіли б побачити далі. А коли наша гра вже буде у вас, відгук у Google Play теж дуже допоможе!</p>
+<div class="pills"><a class="beta" href="#beta">Долучитися до бета-тесту</a><a class="beta alt" href="mailto:prominentgamedev@gmail.com?subject=%D0%92%D1%96%D0%B4%D0%B3%D1%83%D0%BA">Написати на prominentgamedev@gmail.com</a></div>
+</section>
+<footer>
+<p>Контакти: <a href="mailto:prominentgamedev@gmail.com">prominentgamedev@gmail.com</a></p>
+<p>© 2026 Prominent Game</p>
+</footer>
+</div>
+<script>
+(function(){
+var url='https://prominentgame.com/uk/',title=document.title;
+var shareBtn=document.getElementById('share-btn'),copyBtn=document.getElementById('copy-btn'),status=document.getElementById('copy-status');
+if(navigator.share){
+shareBtn.hidden=false;
+shareBtn.addEventListener('click',function(){navigator.share({title:title,url:url}).catch(function(){});});
+}else{
+copyBtn.hidden=false;
+var t;
+function done(){copyBtn.textContent='Скопійовано';status.textContent='Посилання скопійовано';clearTimeout(t);t=setTimeout(function(){copyBtn.textContent='Копіювати посилання';status.textContent='';},2000);}
+function fallback(){var a=document.createElement('textarea');a.value=url;a.setAttribute('readonly','');a.style.position='fixed';a.style.opacity='0';document.body.appendChild(a);a.select();try{document.execCommand('copy');done();}catch(e){}document.body.removeChild(a);}
+copyBtn.addEventListener('click',function(){
+if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(url).then(done,fallback);}else{fallback();}
+});
+}
+})();
+</script>
+</body>
+</html>

@@ -6,7 +6,12 @@
 <title>Small, thoughtful puzzle games</title>
 <meta name="description" content="Small, thoughtful puzzle games for Android: Tilecharm and Glidevane.">
 <link rel="canonical" href="https://prominentgame.com/">
+<link rel="alternate" hreflang="en" href="https://prominentgame.com/">
+<link rel="alternate" hreflang="uk" href="https://prominentgame.com/uk/">
+<link rel="alternate" hreflang="x-default" href="https://prominentgame.com/">
 <meta property="og:type" content="website">
+<meta property="og:locale" content="en_US">
+<meta property="og:locale:alternate" content="uk_UA">
 <meta property="og:url" content="https://prominentgame.com/">
 <meta property="og:title" content="Small, thoughtful puzzle games">
 <meta property="og:description" content="Small, thoughtful puzzle games for Android: Tilecharm and Glidevane.">
@@ -36,6 +41,9 @@ header h1{margin:0;font-weight:800;font-size:clamp(28px,5vw,42px);letter-spacing
 header p{margin:8px 0 0;color:var(--muted)}
 .games{display:grid;grid-template-columns:1fr 1fr;gap:32px;padding:24px 0 40px}
 html{scroll-behavior:smooth}
+.lang{display:flex;justify-content:flex-end;gap:6px;align-items:center;padding:16px 0 0;font-size:14px;font-weight:700;color:var(--muted)}
+.lang a{color:var(--muted);text-decoration:none;padding:2px 6px;border-radius:6px}.lang a:hover{color:var(--text)}.lang a[aria-current]{color:var(--gold)}
+header{padding-top:48px}
 @media(max-width:700px){.games{grid-template-columns:1fr;gap:28px}header{padding:56px 0 24px}}
 .card{background:#ffffff0d;border:1px solid #ffffff1f;border-radius:20px;padding:32px;display:flex;flex-direction:column;gap:16px}
 .tc{background:linear-gradient(160deg,#2B2340,#1c1630);border-color:#D9A44166}.tc .badge{font-weight:700;border-color:#D9A441;color:#D9A441}.tc h2{color:#F3D9A0}
@@ -77,6 +85,7 @@ footer{border-top:1px solid #ffffff1a;padding:24px 0 40px;text-align:center;colo
 </head>
 <body>
 <div class="wrap">
+<nav class="lang" aria-label="Language"><a href="/" hreflang="en" lang="en" aria-current="page">EN</a><span aria-hidden="true">|</span><a href="/uk/" hreflang="uk" lang="uk">УК</a></nav>
 <header>
 <h1>Small, thoughtful puzzle games</h1>
 <p>Tilecharm &amp; Glidevane — coming soon to Android.</p>
