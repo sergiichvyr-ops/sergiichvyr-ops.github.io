@@ -5,11 +5,16 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Small, thoughtful puzzle games</title>
 <meta name="description" content="Small, thoughtful puzzle games for Android: Tilecharm and Glidevane.">
+<link rel="canonical" href="https://prominentgame.com/">
 <meta property="og:type" content="website">
+<meta property="og:url" content="https://prominentgame.com/">
 <meta property="og:title" content="Small, thoughtful puzzle games">
-<meta property="og:description" content="Tilecharm and Glidevane: small, thoughtful puzzle games.">
-<meta property="og:url" content="https://sergiichvyr-ops.github.io/">
-<meta property="og:image" content="https://sergiichvyr-ops.github.io/img/tilecharm.png">
+<meta property="og:description" content="Small, thoughtful puzzle games for Android: Tilecharm and Glidevane.">
+<meta property="og:image" content="https://prominentgame.com/og-card.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://prominentgame.com/og-card.png">
 <meta name="theme-color" content="#2B2340">
 <link rel="icon" type="image/png" href="/favicon.png">
 <style>
@@ -56,6 +61,13 @@ footer{border-top:1px solid #ffffff1a;padding:24px 0 40px;text-align:center;colo
 .steps h3{margin:0 0 4px;font-size:18px;font-weight:800}.steps p{margin:0}
 .steps .pills{margin-top:10px}.steps .beta{background:#D9A441;color:#2B2340}.steps .beta.gvb{background:#FF8A7A;color:#0D0B2B}
 .note{margin:22px 0 0;color:var(--muted);font-size:15px}
+.share{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin:18px 0 0}
+.share .label{color:var(--muted);font-size:15px}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.share .beta{background:#D9A441;color:#2B2340;border:0;font:inherit;font-size:13px;font-weight:700;line-height:inherit;cursor:pointer}
+.share .beta.fb{background:#ffffff1f;color:var(--text);border:1px solid #ffffff33}
+.share .beta:focus-visible{outline:2px solid #F3D9A0;outline-offset:2px}
+.share [hidden]{display:none}
 @media(max-width:700px){.testers{padding:26px 18px;margin-bottom:56px}.steps li{grid-template-columns:32px 1fr;gap:12px;padding:16px}.steps li::before{width:32px;height:32px}}
 </style>
 </head>
@@ -90,11 +102,36 @@ footer{border-top:1px solid #ffffff1a;padding:24px 0 40px;text-align:center;colo
 <li><div><h3>Install, play, and stay opted in for 14 days</h3><p>Install both games from Google Play, open them every few days, and stay opted in for at least 14 days. Google requires 14 days of closed testing before the games can launch publicly.</p></div></li>
 </ol>
 <p class="note">Found a bug or have an idea? We'd love your feedback and screenshots at <a href="mailto:prominentgamedev@gmail.com">prominentgamedev@gmail.com</a>. Thank you for helping!</p>
+<div class="share" aria-label="Share this page">
+<span class="label">Know someone who'd like to test?</span>
+<button type="button" class="beta" id="share-btn" hidden>Share</button>
+<button type="button" class="beta" id="copy-btn" hidden>Copy link</button>
+<a class="beta fb" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fprominentgame.com%2F" target="_blank" rel="noopener noreferrer">Share on Facebook</a>
+<span class="sr" id="copy-status" role="status" aria-live="polite"></span>
+</div>
 </section>
 <footer>
 <p>Contact: <a href="mailto:prominentgamedev@gmail.com">prominentgamedev@gmail.com</a></p>
 <p>© 2026 Sergii Chvyr</p>
 </footer>
 </div>
+<script>
+(function(){
+var url='https://prominentgame.com/',title=document.title;
+var shareBtn=document.getElementById('share-btn'),copyBtn=document.getElementById('copy-btn'),status=document.getElementById('copy-status');
+if(navigator.share){
+shareBtn.hidden=false;
+shareBtn.addEventListener('click',function(){navigator.share({title:title,url:url}).catch(function(){});});
+}else{
+copyBtn.hidden=false;
+var t;
+function done(){copyBtn.textContent='Copied';status.textContent='Link copied';clearTimeout(t);t=setTimeout(function(){copyBtn.textContent='Copy link';status.textContent='';},2000);}
+function fallback(){var a=document.createElement('textarea');a.value=url;a.setAttribute('readonly','');a.style.position='fixed';a.style.opacity='0';document.body.appendChild(a);a.select();try{document.execCommand('copy');done();}catch(e){}document.body.removeChild(a);}
+copyBtn.addEventListener('click',function(){
+if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(url).then(done,fallback);}else{fallback();}
+});
+}
+})();
+</script>
 </body>
 </html>

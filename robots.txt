@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://prominentgame.com/sitemap.xml
