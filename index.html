@@ -68,7 +68,11 @@ footer{border-top:1px solid #ffffff1a;padding:24px 0 40px;text-align:center;colo
 .share .beta.fb{background:#ffffff1f;color:var(--text);border:1px solid #ffffff33}
 .share .beta:focus-visible{outline:2px solid #F3D9A0;outline-offset:2px}
 .share [hidden]{display:none}
-@media(max-width:700px){.testers{padding:26px 18px;margin-bottom:56px}.steps li{grid-template-columns:32px 1fr;gap:12px;padding:16px}.steps li::before{width:32px;height:32px}}
+.feedback{margin:0 0 72px;padding:28px 32px;background:#ffffff0a;border:1px solid #ffffff1f;border-radius:20px;text-align:center;scroll-margin-top:24px}
+.feedback h2{margin:0 0 6px;font-size:clamp(22px,3.5vw,26px);font-weight:800;color:#F3D9A0}
+.feedback p{margin:0 auto;max-width:620px;color:var(--muted)}
+.feedback .pills{justify-content:center;margin-top:16px}.feedback .beta{background:#D9A441;color:#2B2340}.feedback .beta.alt{background:#ffffff1f;color:var(--text);border:1px solid #ffffff33}
+@media(max-width:700px){.testers{padding:26px 18px;margin-bottom:56px}.feedback{padding:24px 18px;margin-bottom:56px}.steps li{grid-template-columns:32px 1fr;gap:12px;padding:16px}.steps li::before{width:32px;height:32px}}
 </style>
 </head>
 <body>
@@ -109,6 +113,11 @@ footer{border-top:1px solid #ffffff1a;padding:24px 0 40px;text-align:center;colo
 <a class="beta fb" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fprominentgame.com%2F" target="_blank" rel="noopener noreferrer">Share on Facebook</a>
 <span class="sr" id="copy-status" role="status" aria-live="polite"></span>
 </div>
+</section>
+<section class="feedback" id="feedback" aria-labelledby="feedback-title">
+<h2 id="feedback-title">Feedback</h2>
+<p>We read every message. Tell us what you love, what's tricky, or what you'd like to see next. Once you have one of our games, a review on Google Play helps a lot too!</p>
+<div class="pills"><a class="beta" href="mailto:prominentgamedev@gmail.com?subject=Feedback">Email prominentgamedev@gmail.com</a><a class="beta alt" href="#beta">Get the games (beta)</a></div>
 </section>
 <footer>
 <p>Contact: <a href="mailto:prominentgamedev@gmail.com">prominentgamedev@gmail.com</a></p>
