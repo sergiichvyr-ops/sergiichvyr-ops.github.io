@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="uk">
+<head>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('consent','default',{ad_storage:'denied',ad_user_data:'denied',ad_personalization:'denied',analytics_storage:'denied',wait_for_update:500});
+  try{if(localStorage.getItem('pg_consent')==='accepted'){gtag('consent','update',{analytics_storage:'granted'});}}catch(e){}
+</script>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-K2VQV7H933"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-K2VQV7H933');
+</script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Glidevane — логічні головоломки</title>
+<meta name="description" content="Виводьте планери з поля в потрібному порядку. Пропелери й портали змінюють шлях. Спокійна логічна головоломка для Android.">
+<link rel="canonical" href="https://prominentgame.com/uk/glidevane/">
+<link rel="alternate" hreflang="en" href="https://prominentgame.com/glidevane/">
+<link rel="alternate" hreflang="uk" href="https://prominentgame.com/uk/glidevane/">
+<link rel="alternate" hreflang="x-default" href="https://prominentgame.com/glidevane/">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="uk_UA">
+<meta property="og:locale:alternate" content="en_US">
+<meta property="og:url" content="https://prominentgame.com/uk/glidevane/">
+<meta property="og:title" content="Glidevane — логічні головоломки">
+<meta property="og:description" content="Виводьте планери з поля в потрібному порядку. Пропелери й портали змінюють шлях.">
+<meta property="og:image" content="https://prominentgame.com/og-card.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://prominentgame.com/og-card.png">
+<meta name="theme-color" content="#0D0B2B">
+<link rel="icon" type="image/png" href="/favicon.png">
+<style>
+@font-face{font-family:Nunito;src:url(/fonts/Nunito-Regular.ttf) format("truetype");font-weight:400;font-display:swap}
+@font-face{font-family:Nunito;src:url(/fonts/Nunito-Bold.ttf) format("truetype");font-weight:700;font-display:swap}
+@font-face{font-family:Nunito;src:url(/fonts/Nunito-ExtraBold.ttf) format("truetype");font-weight:800;font-display:swap}
+:root{--ink:#0D0B2B;--text:#ece8f7;--muted:#b3abcf;--gold:#F2C46D;--accent:#FF8A7A;--link:#E3CCFF}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{font:17px/1.65 Nunito,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;color:var(--text);min-height:100vh;
+background:radial-gradient(1px 1px at 12% 18%,#fff9,transparent),radial-gradient(1px 1px at 72% 12%,#fff8,transparent),
+radial-gradient(1.5px 1.5px at 40% 30%,#fffa,transparent),radial-gradient(1px 1px at 88% 44%,#fff7,transparent),
+radial-gradient(1px 1px at 25% 62%,#fff6,transparent),radial-gradient(1.5px 1.5px at 60% 75%,#fff8,transparent),
+radial-gradient(1px 1px at 8% 88%,#fff6,transparent),radial-gradient(1px 1px at 93% 86%,#fff7,transparent),
+radial-gradient(ellipse at top,#2A1F5C 0%,#0D0B2B 50%,#12081a 100%) fixed}
+.wrap{max-width:840px;margin:0 auto;padding:0 20px}
+.topbar{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:16px 0 0;font-size:14px;font-weight:700;color:var(--muted)}
+.topbar a{color:var(--muted);text-decoration:none}.topbar a:hover{color:var(--text)}
+.lang{display:flex;gap:6px;align-items:center}
+.lang a{padding:2px 6px;border-radius:6px}.lang a[aria-current]{color:var(--gold)}
+.hero{padding:40px 0 28px;text-align:center}
+.hero .icon{width:96px;height:96px;border-radius:22px;box-shadow:0 8px 28px #0009;margin:0 auto 18px;display:block}
+.hero h1{margin:0;font-weight:800;font-size:clamp(36px,7vw,56px);letter-spacing:.5px;color:var(--accent)}
+.hero .short{margin:12px auto 0;max-width:540px;color:var(--muted);font-size:18px}
+.cta{display:flex;justify-content:center;margin:18px 0 0}
+.gp{display:inline-block;line-height:0;border-radius:8px}.gp:focus-visible{outline:2px solid #F2C46D;outline-offset:2px}
+.gp img{width:140px;height:auto;border-radius:0}
+.feature{display:block;width:100%;max-width:840px;height:auto;border-radius:16px;margin:8px auto 36px;box-shadow:0 10px 36px #0007}
+.section{margin:0 0 40px}
+.section h2{margin:0 0 10px;font-size:22px;font-weight:800;color:var(--accent)}
+.section p{margin:0 0 12px;color:var(--text)}
+.section p:last-child{margin-bottom:0}
+.feats{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+.feats li{background:#ffffff0d;border:1px solid #F2C46D33;border-radius:14px;padding:14px 16px;color:var(--text)}
+.screens{display:flex;gap:14px;overflow-x:auto;padding:4px 2px 16px;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch}
+.screens img{flex:0 0 auto;width:min(180px,42vw);height:auto;border-radius:18px;box-shadow:0 8px 24px #0008;scroll-snap-align:start}
+.more{margin:0 0 56px;padding:22px 24px;background:#ffffff0a;border:1px solid #ffffff1f;border-radius:16px;text-align:center;color:var(--muted)}
+.more a{color:var(--link)}
+a{color:var(--link)}
+footer{border-top:1px solid #ffffff1a;padding:24px 0 40px;text-align:center;color:var(--muted);font-size:14px}
+.consent{position:fixed;left:12px;right:12px;bottom:12px;z-index:50;max-width:640px;margin:0 auto;display:flex;flex-wrap:wrap;align-items:center;gap:12px 16px;padding:14px 18px;background:#1c1630f2;border:1px solid #ffffff26;border-radius:16px;box-shadow:0 8px 28px #0009;font-size:14px;line-height:1.5;color:var(--text)}
+.consent[hidden]{display:none}
+.consent p{margin:0;flex:1 1 260px}
+.consent .btns{display:flex;gap:10px;flex:0 0 auto}
+.consent button{font:inherit;font-size:14px;font-weight:700;min-width:96px;padding:6px 16px;border-radius:999px;cursor:pointer;background:#ffffff1f;color:var(--text);border:1px solid #ffffff4d}
+.consent button:hover{background:#ffffff2e}
+.consent button:focus-visible,.linkbtn:focus-visible{outline:2px solid #F2C46D;outline-offset:2px}
+.linkbtn{background:none;border:0;padding:0;font:inherit;color:var(--link);text-decoration:underline;cursor:pointer}
+@media(max-width:700px){.hero{padding:28px 0 20px}.feature{margin-bottom:28px}.section{margin-bottom:32px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<div class="topbar">
+<a href="/uk/">← Prominent Game</a>
+<nav class="lang" aria-label="Мова"><a href="/glidevane/" hreflang="en" lang="en">EN</a><span aria-hidden="true">|</span><a href="/uk/glidevane/" hreflang="uk" lang="uk" aria-current="page">УК</a></nav>
+</div>
+<header class="hero">
+<img class="icon" src="/img/glidevane.png" alt="" width="96" height="96">
+<h1>Glidevane</h1>
+<p class="short">Виводьте планери з поля в потрібному порядку. Пропелери й портали змінюють шлях.</p>
+<div class="cta"><a class="gp" href="https://play.google.com/store/apps/details?id=com.glidevane.game" target="_blank" rel="noopener"><img src="https://play.google.com/intl/en_us/badges/static/images/badges/ua_badge_web_generic.png" alt="Завантажити з Google Play" width="646" height="250"></a></div>
+</header>
+<img class="feature" src="/img/glidevane/feature.png" alt="Промо-банер Glidevane" width="1024" height="500">
+<main>
+<section class="section" aria-labelledby="about-title">
+<h2 id="about-title">Про гру</h2>
+<p>Glidevane — спокійна головоломка про те, як очистити нічне небо, планер за планером.</p>
+<p>Кожен планер дивиться в один бік. Торкніться його — і він вилетить із поля, якщо шлях вільний. Торкнетеся заблокованого — він відскочить, а ви втратите серце. Продумуйте порядок дотиків, спершу звільняйте крайні планери й розплутуйте поле.</p>
+</section>
+<section class="section" aria-labelledby="twist-title">
+<h2 id="twist-title">Родзинка: пропелери й портали</h2>
+<ul class="feats">
+<li>Латунні пропелери обертаються за годинниковою стрілкою або проти неї й повертають кожен планер, що крізь них пролітає, тож маршрути вигинаються</li>
+<li>На пізніших рівнях з'являються портали: планер, що влітає в синій, вилітає з помаранчевого в тому ж напрямку</li>
+<li>Коротке інтерактивне навчання допоможе почати</li>
+</ul>
+</section>
+<section class="section" aria-labelledby="feat-title">
+<h2 id="feat-title">Можливості</h2>
+<ul class="feats">
+<li>Тисячі рівнів, щоразу нові й завжди розв'язні</li>
+<li>Щоденна головоломка: нове поле щодня й серія, яку варто не переривати</li>
+<li>Режим «На швидкість»: проходьте вже пройдені рівні наввипередки з часом і здобувайте до 3 зірок</li>
+<li>Підказки, скасування ходу й друга спроба, коли застрягли</li>
+<li>В основних рівнях немає таймера — грайте у власному темпі</li>
+<li>Зручно для людей із дальтонізмом: кожен напрямок має власну форму</li>
+<li>Можна грати без інтернету · щоденне нагадування за бажанням</li>
+</ul>
+<p>Безплатна гра з рекламою. Вимкніть рекламу однією покупкою. Відео за винагороду за бажанням дають додаткові серця й підказки.</p>
+</section>
+<section class="section" aria-labelledby="screens-title">
+<h2 id="screens-title">Знімки екрана</h2>
+<div class="screens">
+<img src="/img/glidevane/screen-1-uk.webp" alt="Рівень у Glidevane" width="540" height="960" loading="lazy">
+<img src="/img/glidevane/screen-2-uk.webp" alt="Перемога в щоденній головоломці" width="540" height="960" loading="lazy">
+<img src="/img/glidevane/screen-3-uk.webp" alt="Портали в Glidevane" width="540" height="960" loading="lazy">
+<img src="/img/glidevane/screen-4-uk.webp" alt="Режим «На швидкість»" width="540" height="960" loading="lazy">
+</div>
+</section>
+<p class="more">Також від Prominent Game: <a href="/uk/tilecharm/">Tilecharm</a></p>
+</main>
+<footer>
+<p><a href="https://prominentgame.com/glidevane-legal/privacy-policy.html">Політика конфіденційності (англ.)</a> · <a href="mailto:prominentgamedev@gmail.com">prominentgamedev@gmail.com</a></p>
+<p>Цей сайт використовує Google Analytics лише за вашою згодою. <button type="button" class="linkbtn" id="cookie-settings">Налаштування cookie</button></p>
+<p>© 2026 Prominent Game</p>
+</footer>
+</div>
+<div class="consent" id="consent" role="region" aria-label="Згода на cookie" hidden>
+<p>Ми використовуємо Google Analytics, щоб бачити, як відвідувачі користуються сайтом. Ви не проти?</p>
+<div class="btns"><button type="button" id="consent-accept">Прийняти</button><button type="button" id="consent-decline">Відхилити</button></div>
+</div>
+<script>
+(function(){
+var KEY='pg_consent',b=document.getElementById('consent');
+function get(){try{return localStorage.getItem(KEY);}catch(e){return null;}}
+function set(v){try{if(v)localStorage.setItem(KEY,v);else localStorage.removeItem(KEY);}catch(e){}}
+if(get()!=='accepted'&&get()!=='declined'){b.hidden=false;}
+document.getElementById('consent-accept').addEventListener('click',function(){set('accepted');gtag('consent','update',{analytics_storage:'granted'});b.hidden=true;});
+document.getElementById('consent-decline').addEventListener('click',function(){set('declined');gtag('consent','update',{analytics_storage:'denied'});b.hidden=true;});
+document.getElementById('cookie-settings').addEventListener('click',function(){set(null);gtag('consent','update',{analytics_storage:'denied'});b.hidden=false;document.getElementById('consent-accept').focus();});
+})();
+</script>
+</body>
+</html>

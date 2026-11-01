@@ -12,4 +12,28 @@
     <xhtml:link rel="alternate" hreflang="uk" href="https://prominentgame.com/uk/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://prominentgame.com/"/>
   </url>
+  <url>
+    <loc>https://prominentgame.com/tilecharm/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://prominentgame.com/tilecharm/"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://prominentgame.com/uk/tilecharm/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://prominentgame.com/tilecharm/"/>
+  </url>
+  <url>
+    <loc>https://prominentgame.com/uk/tilecharm/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://prominentgame.com/tilecharm/"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://prominentgame.com/uk/tilecharm/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://prominentgame.com/tilecharm/"/>
+  </url>
+  <url>
+    <loc>https://prominentgame.com/glidevane/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://prominentgame.com/glidevane/"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://prominentgame.com/uk/glidevane/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://prominentgame.com/glidevane/"/>
+  </url>
+  <url>
+    <loc>https://prominentgame.com/uk/glidevane/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://prominentgame.com/glidevane/"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://prominentgame.com/uk/glidevane/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://prominentgame.com/glidevane/"/>
+  </url>
 </urlset>
