@@ -24,22 +24,65 @@
 <link rel="alternate" hreflang="uk" href="https://prominentgame.com/uk/tilecharm/">
 <link rel="alternate" hreflang="x-default" href="https://prominentgame.com/tilecharm/">
 <meta property="og:type" content="website">
+<meta property="og:site_name" content="Prominent Game">
 <meta property="og:locale" content="en_US">
 <meta property="og:locale:alternate" content="uk_UA">
 <meta property="og:url" content="https://prominentgame.com/tilecharm/">
 <meta property="og:title" content="Tilecharm — jewel blocks, charms, and a boss run">
 <meta property="og:description" content="Place jewel blocks, clear lines and stack lucky charms to beat the boss.">
-<meta property="og:image" content="https://prominentgame.com/og-card.png">
-<meta property="og:image:width" content="1200">
-<meta property="og:image:height" content="630">
+<meta property="og:image" content="https://prominentgame.com/img/tilecharm/feature.png">
+<meta property="og:image:width" content="1024">
+<meta property="og:image:height" content="500">
+<meta property="og:image:alt" content="Tilecharm feature graphic">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://prominentgame.com/og-card.png">
+<meta name="twitter:image" content="https://prominentgame.com/img/tilecharm/feature.png">
+<meta name="twitter:image:alt" content="Tilecharm feature graphic">
+<meta name="twitter:title" content="Tilecharm — jewel blocks, charms, and a boss run">
+<meta name="twitter:description" content="Place jewel blocks, clear lines and stack lucky charms to beat the boss.">
 <meta name="theme-color" content="#2B2340">
 <link rel="icon" type="image/png" href="/favicon.png">
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "MobileApplication",
+ "name": "Tilecharm",
+ "description": "Place jewel blocks, clear lines and stack lucky charms to beat the boss. A block puzzle with a roguelite twist for Android.",
+ "operatingSystem": "Android",
+ "applicationCategory": "GameApplication",
+ "genre": "Puzzle",
+ "url": "https://prominentgame.com/tilecharm/",
+ "image": "https://prominentgame.com/img/tilecharm/feature.png",
+ "inLanguage": "en",
+ "author": {
+  "@type": "Organization",
+  "name": "Prominent Game",
+  "url": "https://prominentgame.com"
+ },
+ "offers": {
+  "@type": "Offer",
+  "price": 0,
+  "priceCurrency": "USD"
+ },
+ "sameAs": "https://play.google.com/store/apps/details?id=com.tilecharm.game"
+}
+</script>
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "VideoObject",
+ "name": "This combo broke the boss | Tilecharm",
+ "description": "A 13-second Tilecharm clip: a charm combo takes down the boss.",
+ "thumbnailUrl": "https://i.ytimg.com/vi/JU2Dm-3oOSM/hqdefault.jpg",
+ "uploadDate": "2026-11-01T13:00:50-08:00",
+ "duration": "PT13S",
+ "embedUrl": "https://www.youtube-nocookie.com/embed/JU2Dm-3oOSM",
+ "contentUrl": "https://www.youtube.com/shorts/JU2Dm-3oOSM"
+}
+</script>
 <style>
-@font-face{font-family:Nunito;src:url(/fonts/Nunito-Regular.ttf) format("truetype");font-weight:400;font-display:swap}
-@font-face{font-family:Nunito;src:url(/fonts/Nunito-Bold.ttf) format("truetype");font-weight:700;font-display:swap}
-@font-face{font-family:Nunito;src:url(/fonts/Nunito-ExtraBold.ttf) format("truetype");font-weight:800;font-display:swap}
+@font-face{font-family:Nunito;src:url(/fonts/Nunito-Regular.woff2) format("woff2"),url(/fonts/Nunito-Regular.ttf) format("truetype");font-weight:400;font-display:swap}
+@font-face{font-family:Nunito;src:url(/fonts/Nunito-Bold.woff2) format("woff2"),url(/fonts/Nunito-Bold.ttf) format("truetype");font-weight:700;font-display:swap}
+@font-face{font-family:Nunito;src:url(/fonts/Nunito-ExtraBold.woff2) format("woff2"),url(/fonts/Nunito-ExtraBold.ttf) format("truetype");font-weight:800;font-display:swap}
 :root{--ink:#2B2340;--text:#ece8f7;--muted:#b3abcf;--gold:#D9A441;--accent:#F3D9A0}
 *{box-sizing:border-box}
 html,body{margin:0}
@@ -82,7 +125,15 @@ footer{border-top:1px solid #ffffff1a;padding:24px 0 40px;text-align:center;colo
 .consent button:hover{background:#ffffff2e}
 .consent button:focus-visible,.linkbtn:focus-visible{outline:2px solid #F3D9A0;outline-offset:2px}
 .linkbtn{background:none;border:0;padding:0;font:inherit;color:#c9b8ff;text-decoration:underline;cursor:pointer}
+.yt{position:relative;display:block;width:100%;max-width:320px;aspect-ratio:9/16;margin:24px auto 0;border-radius:16px;overflow:hidden;background:#000;box-shadow:0 10px 36px #0007}
+.yt.wide{max-width:640px;aspect-ratio:16/9;margin:0 auto}
+.yt img,.yt iframe{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border:0;border-radius:0;box-shadow:none;margin:0}
+.yt .play{position:absolute;left:50%;top:50%;width:68px;height:48px;margin:-24px 0 0 -34px;border-radius:14px;background:#000a;transition:background .15s}
+.yt .play::after{content:"";position:absolute;left:27px;top:14px;border-style:solid;border-width:10px 0 10px 18px;border-color:transparent transparent transparent #fff}
+a.yt:hover .play,a.yt:focus-visible .play{background:#f00}a.yt:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+.soon{display:inline-block;border-radius:999px;padding:10px 22px;font-size:16px;font-weight:800;text-decoration:none;background:var(--accent);color:var(--ink);box-shadow:0 6px 20px #0006}.soon:hover{filter:brightness(1.08)}.soon:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
 @media(max-width:700px){.hero{padding:28px 0 20px}.feature{margin-bottom:28px}.section{margin-bottom:32px}}
+picture{display:block;line-height:0}
 </style>
 </head>
 <body>
@@ -92,12 +143,13 @@ footer{border-top:1px solid #ffffff1a;padding:24px 0 40px;text-align:center;colo
 <nav class="lang" aria-label="Language"><a href="/tilecharm/" hreflang="en" lang="en" aria-current="page">EN</a><span aria-hidden="true">|</span><a href="/uk/tilecharm/" hreflang="uk" lang="uk">УК</a></nav>
 </div>
 <header class="hero">
-<img class="icon" src="/img/tilecharm.png" alt="" width="96" height="96">
+<picture><source srcset="/img/tilecharm.webp" type="image/webp"><img class="icon" src="/img/tilecharm.png" alt="" width="96" height="96"></picture>
 <h1>Tilecharm</h1>
 <p class="short">Place jewel blocks, clear lines and stack lucky charms to beat the boss.</p>
 <div class="cta"><a class="gp" href="https://play.google.com/store/apps/details?id=com.tilecharm.game" target="_blank" rel="noopener"><img src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png" alt="Get it on Google Play" width="646" height="250"></a></div>
+<a class="yt" href="https://www.youtube.com/shorts/JU2Dm-3oOSM" data-yt="JU2Dm-3oOSM" data-title="This combo broke the boss | Tilecharm" target="_blank" rel="noopener" aria-label="Play video: This combo broke the boss | Tilecharm"><img src="https://i.ytimg.com/vi/JU2Dm-3oOSM/hqdefault.jpg" width="480" height="360" alt="Tilecharm video: the combo that broke the boss" decoding="async"><span class="play" aria-hidden="true"></span></a>
 </header>
-<img class="feature" src="/img/tilecharm/feature.png" alt="Tilecharm feature graphic" width="1024" height="500">
+<picture><source srcset="/img/tilecharm/feature.webp" type="image/webp"><img class="feature" src="/img/tilecharm/feature.png" alt="Tilecharm feature graphic" width="1024" height="500" fetchpriority="high"></picture>
 <main>
 <section class="section" aria-labelledby="about-title">
 <h2 id="about-title">About</h2>
@@ -128,7 +180,7 @@ footer{border-top:1px solid #ffffff1a;padding:24px 0 40px;text-align:center;colo
 <p class="more">Also from Prominent Game: <a href="/glidevane/">Glidevane</a></p>
 </main>
 <footer>
-<p><a href="https://prominentgame.com/glidevane-legal/tilecharm-privacy-policy.html">Privacy policy</a> · <a href="mailto:prominentgamedev@gmail.com">prominentgamedev@gmail.com</a></p>
+<p><a href="https://prominentgame.com/glidevane-legal/tilecharm-privacy-policy.html">Privacy policy</a> · <a href="mailto:prominentgamedev@gmail.com">prominentgamedev@gmail.com</a> · <a href="https://www.youtube.com/@ProminentGame" target="_blank" rel="noopener">YouTube</a></p>
 <p>This site uses Google Analytics only with your consent. <button type="button" class="linkbtn" id="cookie-settings">Cookie settings</button></p>
 <p>© 2026 Prominent Game</p>
 </footer>
@@ -147,6 +199,13 @@ document.getElementById('consent-accept').addEventListener('click',function(){se
 document.getElementById('consent-decline').addEventListener('click',function(){set('declined');gtag('consent','update',{analytics_storage:'denied'});b.hidden=true;});
 document.getElementById('cookie-settings').addEventListener('click',function(){set(null);gtag('consent','update',{analytics_storage:'denied'});b.hidden=false;document.getElementById('consent-accept').focus();});
 })();
+</script>
+<script>
+document.querySelectorAll('a.yt[data-yt]').forEach(function(a){a.addEventListener('click',function(e){
+if(e.metaKey||e.ctrlKey||e.shiftKey||e.altKey||e.button)return;e.preventDefault();
+var f=document.createElement('iframe');f.src='https://www.youtube-nocookie.com/embed/'+a.getAttribute('data-yt')+'?autoplay=1&playsinline=1&rel=0';
+f.title=a.getAttribute('data-title');f.allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';f.allowFullscreen=true;f.referrerPolicy='strict-origin-when-cross-origin';
+var d=document.createElement('div');d.className=a.className;d.appendChild(f);a.parentNode.replaceChild(d,a);f.focus();});});
 </script>
 </body>
 </html>
