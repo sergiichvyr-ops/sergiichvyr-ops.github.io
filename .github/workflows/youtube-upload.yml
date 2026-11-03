@@ -1,0 +1,152 @@
+# Manual upload of one game video to the @ProminentGame YouTube channel, always as PRIVATE.
+# The channel owner flips videos to Public in YouTube Studio. Setup: .github/youtube/README.md
+# This workflow never touches the GitHub Pages site content.
+name: YouTube upload (private)
+
+on:
+  workflow_dispatch:
+    inputs:
+      game:
+        description: Game repo to take the video from
+        type: choice
+        options: [tilecharm, glidevane]
+        required: true
+      video_path:
+        description: Path inside the game repo, e.g. store/video/tilecharm-promo-15s.mp4
+        type: string
+        required: true
+      ref:
+        description: Branch, tag or commit SHA in the game repo
+        type: string
+        default: main
+      title:
+        description: YouTube title (max 100 characters)
+        type: string
+        required: true
+      description:
+        description: YouTube description (max 5000 bytes; type \n for a line break)
+        type: string
+        default: ""
+      tags:
+        description: Comma-separated tags (optional)
+        type: string
+        default: ""
+      dry_run:
+        description: Dry run (fetch + validate only, no upload, no YouTube credentials needed)
+        type: boolean
+        default: false
+
+permissions:
+  contents: read
+
+concurrency:
+  group: youtube-upload
+  cancel-in-progress: false
+
+jobs:
+  upload:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+          sparse-checkout: .github/youtube
+
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.12"
+          cache: pip
+          cache-dependency-path: .github/youtube/requirements.txt
+
+      - name: Install Python dependencies
+        run: timeout 300 python -m pip install --disable-pip-version-check -q -r .github/youtube/requirements.txt
+
+      - name: Fetch video from game repo
+        id: fetch
+        env:
+          OWNER: ${{ github.repository_owner }}
+          GAME: ${{ inputs.game }}
+          VIDEO_PATH: ${{ inputs.video_path }}
+          REF: ${{ inputs.ref }}
+          GAME_REPO_TOKEN: ${{ secrets.GAME_REPO_TOKEN }}
+          WORKFLOW_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          err() { echo "::error::$*"; exit 1; }
+
+          case "$VIDEO_PATH" in
+            /*|*..*|"") err "video_path must be a relative path inside the game repo (no leading '/', no '..'): '$VIDEO_PATH'" ;;
+          esac
+          shopt -s nocasematch
+          [[ "$VIDEO_PATH" =~ \.(mp4|mov|m4v|webm|mkv|avi)$ ]] || err "video_path must point to a video file (.mp4/.mov/.m4v/.webm/.mkv/.avi): '$VIDEO_PATH'"
+          shopt -u nocasematch
+          [[ "$REF" =~ ^[A-Za-z0-9._/-]+$ ]] || err "ref contains unexpected characters: '$REF'"
+
+          # Use the PAT if present; otherwise the workflow token, which can read public repos only.
+          if [ -n "$GAME_REPO_TOKEN" ]; then export GH_TOKEN="$GAME_REPO_TOKEN"; using=GAME_REPO_TOKEN
+          else export GH_TOKEN="$WORKFLOW_TOKEN"; using=workflow-token; fi
+
+          if ! vis=$(timeout 90 gh repo view "$OWNER/$GAME" --json visibility --jq .visibility 2>/dev/null); then
+            if [ "$using" = workflow-token ]; then
+              err "Cannot read $OWNER/$GAME: it is private and the GAME_REPO_TOKEN secret is not set. Create a fine-grained PAT with read-only Contents on tilecharm + glidevane and save it as GAME_REPO_TOKEN in this repo (see .github/youtube/README.md, step 7)."
+            fi
+            err "GAME_REPO_TOKEN cannot read $OWNER/$GAME (expired, revoked, or missing 'Contents: Read-only' for that repo). Regenerate it (.github/youtube/README.md, step 7)."
+          fi
+          echo "Game repo $OWNER/$GAME visibility: $vis (token: $using)"
+
+          enc_path=$(python3 -c 'import sys,urllib.parse;print(urllib.parse.quote(sys.argv[1]))' "$VIDEO_PATH")
+          enc_ref=$(python3 -c 'import sys,urllib.parse;print(urllib.parse.quote(sys.argv[1], safe=""))' "$REF")
+          api="repos/$OWNER/$GAME/contents/$enc_path?ref=$enc_ref"
+          out="$RUNNER_TEMP/video/$(basename "$VIDEO_PATH")"
+          mkdir -p "$(dirname "$out")"
+
+          # curl (not gh api) so binary bodies are written byte-for-byte.
+          if ! timeout 300 curl -fsSL --retry 3 -o "$out" \
+              -H "Authorization: Bearer $GH_TOKEN" \
+              -H "Accept: application/vnd.github.raw+json" \
+              -H "X-GitHub-Api-Version: 2022-11-28" \
+              "${GITHUB_API_URL:-https://api.github.com}/$api"; then
+            err "Could not fetch '$VIDEO_PATH' at ref '$REF' from $OWNER/$GAME (wrong path/ref, or file over GitHub's 100 MB contents-API limit)."
+          fi
+
+          # Git LFS: the contents API returns the small pointer file; download the real object instead.
+          if head -c 200 "$out" | grep -q 'git-lfs.github.com/spec'; then
+            echo "File is a Git LFS pointer; downloading the LFS object."
+            dl=$(timeout 90 gh api "$api" --jq .download_url)
+            [ -n "$dl" ] || err "No download_url for the LFS file '$VIDEO_PATH'."
+            timeout 600 curl -fsSL --retry 3 -o "$out" "$dl" || err "LFS download failed for '$VIDEO_PATH'."
+          fi
+
+          size=$(stat -c %s "$out")
+          [ "$size" -gt 1024 ] || err "Fetched file is only $size bytes; '$VIDEO_PATH' is not a video (is it a directory?)."
+          if [ "$(head -c 12 "$out" | tail -c 8 | head -c 4)" != "ftyp" ]; then
+            echo "::warning::File has no MP4/MOV 'ftyp' header; YouTube may still accept it if it is another video format."
+          fi
+          echo "Fetched $VIDEO_PATH @ $REF: $size bytes ($(awk "BEGIN{printf \"%.2f\", $size/1048576}") MiB)"
+          echo "video_file=$out" >> "$GITHUB_OUTPUT"
+
+      - name: Validate metadata (dry run, no upload)
+        if: ${{ inputs.dry_run }}
+        env:
+          VIDEO_FILE: ${{ steps.fetch.outputs.video_file }}
+          TITLE: ${{ inputs.title }}
+          DESCRIPTION: ${{ inputs.description }}
+          TAGS: ${{ inputs.tags }}
+        run: |
+          python3 .github/youtube/upload_video.py --dry-run \
+            --file "$VIDEO_FILE" --title "$TITLE" --description "$DESCRIPTION" --tags "$TAGS"
+
+      - name: Upload to YouTube as private
+        if: ${{ !inputs.dry_run }}
+        env:
+          VIDEO_FILE: ${{ steps.fetch.outputs.video_file }}
+          TITLE: ${{ inputs.title }}
+          DESCRIPTION: ${{ inputs.description }}
+          TAGS: ${{ inputs.tags }}
+          YT_CLIENT_ID: ${{ secrets.YT_CLIENT_ID }}
+          YT_CLIENT_SECRET: ${{ secrets.YT_CLIENT_SECRET }}
+          YT_REFRESH_TOKEN: ${{ secrets.YT_REFRESH_TOKEN }}
+        run: |
+          python3 .github/youtube/upload_video.py \
+            --file "$VIDEO_FILE" --title "$TITLE" --description "$DESCRIPTION" --tags "$TAGS"
