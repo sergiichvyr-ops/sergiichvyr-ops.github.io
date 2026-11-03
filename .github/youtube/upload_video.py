@@ -66,7 +66,7 @@ def build_service():
     missing = [k for k in ("YT_CLIENT_ID", "YT_CLIENT_SECRET", "YT_REFRESH_TOKEN") if not os.environ.get(k)]
     if missing:
         fail("Missing repository secret(s): " + ", ".join(missing)
-             + ". See tools/youtube/README.md (or run with dry_run=true to test without credentials).")
+             + ". See .github/youtube/README.md (or run with dry_run=true to test without credentials).")
     from google.auth.exceptions import RefreshError
     from google.auth.transport.requests import Request
     from google.oauth2.credentials import Credentials
@@ -88,7 +88,7 @@ def build_service():
             fail("Google rejected YT_REFRESH_TOKEN (invalid_grant): the refresh token expired or was revoked. "
                  "Common causes: OAuth consent screen still in 'Testing' (tokens expire after 7 days), "
                  "you removed the app's access in your Google account, or the password changed. "
-                 "Re-run tools/youtube/mint_refresh_token.py and update the YT_REFRESH_TOKEN secret.")
+                 "Re-run .github/youtube/mint_refresh_token.py and update the YT_REFRESH_TOKEN secret.")
         if "invalid_client" in text or "unauthorized_client" in text:
             fail("Google rejected YT_CLIENT_ID / YT_CLIENT_SECRET (invalid_client). Check both secrets come from "
                  "the same Desktop OAuth client that minted the refresh token.")

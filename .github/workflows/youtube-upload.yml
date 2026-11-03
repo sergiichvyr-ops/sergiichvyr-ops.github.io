@@ -1,5 +1,5 @@
 # Manual upload of one game video to the @ProminentGame YouTube channel, always as PRIVATE.
-# The channel owner flips videos to Public in YouTube Studio. Setup: tools/youtube/README.md
+# The channel owner flips videos to Public in YouTube Studio. Setup: .github/youtube/README.md
 # This workflow never touches the GitHub Pages site content.
 name: YouTube upload (private)
 
@@ -51,16 +51,16 @@ jobs:
       - uses: actions/checkout@v7
         with:
           persist-credentials: false
-          sparse-checkout: tools/youtube
+          sparse-checkout: .github/youtube
 
       - uses: actions/setup-python@v7
         with:
           python-version: "3.12"
           cache: pip
-          cache-dependency-path: tools/youtube/requirements.txt
+          cache-dependency-path: .github/youtube/requirements.txt
 
       - name: Install Python dependencies
-        run: timeout 300 python -m pip install --disable-pip-version-check -q -r tools/youtube/requirements.txt
+        run: timeout 300 python -m pip install --disable-pip-version-check -q -r .github/youtube/requirements.txt
 
       - name: Fetch video from game repo
         id: fetch
@@ -89,9 +89,9 @@ jobs:
 
           if ! vis=$(timeout 90 gh repo view "$OWNER/$GAME" --json visibility --jq .visibility 2>/dev/null); then
             if [ "$using" = workflow-token ]; then
-              err "Cannot read $OWNER/$GAME: it is private and the GAME_REPO_TOKEN secret is not set. Create a fine-grained PAT with read-only Contents on tilecharm + glidevane and save it as GAME_REPO_TOKEN in this repo (see tools/youtube/README.md, step 7)."
+              err "Cannot read $OWNER/$GAME: it is private and the GAME_REPO_TOKEN secret is not set. Create a fine-grained PAT with read-only Contents on tilecharm + glidevane and save it as GAME_REPO_TOKEN in this repo (see .github/youtube/README.md, step 7)."
             fi
-            err "GAME_REPO_TOKEN cannot read $OWNER/$GAME (expired, revoked, or missing 'Contents: Read-only' for that repo). Regenerate it (tools/youtube/README.md, step 7)."
+            err "GAME_REPO_TOKEN cannot read $OWNER/$GAME (expired, revoked, or missing 'Contents: Read-only' for that repo). Regenerate it (.github/youtube/README.md, step 7)."
           fi
           echo "Game repo $OWNER/$GAME visibility: $vis (token: $using)"
 
@@ -134,7 +134,7 @@ jobs:
           DESCRIPTION: ${{ inputs.description }}
           TAGS: ${{ inputs.tags }}
         run: |
-          python3 tools/youtube/upload_video.py --dry-run \
+          python3 .github/youtube/upload_video.py --dry-run \
             --file "$VIDEO_FILE" --title "$TITLE" --description "$DESCRIPTION" --tags "$TAGS"
 
       - name: Upload to YouTube as private
@@ -148,5 +148,5 @@ jobs:
           YT_CLIENT_SECRET: ${{ secrets.YT_CLIENT_SECRET }}
           YT_REFRESH_TOKEN: ${{ secrets.YT_REFRESH_TOKEN }}
         run: |
-          python3 tools/youtube/upload_video.py \
+          python3 .github/youtube/upload_video.py \
             --file "$VIDEO_FILE" --title "$TITLE" --description "$DESCRIPTION" --tags "$TAGS"

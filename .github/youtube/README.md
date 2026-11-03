@@ -11,6 +11,10 @@ Inputs: `game`, `video_path`, `ref` (default `main`), `title` (max 100 chars), `
 `dry_run = true` fetches the video, validates the metadata and prints the size without uploading,
 so it needs `GAME_REPO_TOKEN` but no YouTube secrets.
 
+> **Note on hosting:** this repo is the GitHub Pages site and is served without Jekyll (`.nojekyll`),
+> so files under `.github/` (this folder and the workflow) may still be reachable on prominentgame.com.
+> They hold no secrets: all credentials live only in GitHub Actions secrets.
+
 ## One-time setup (about 10 minutes)
 
 1. **Google Cloud project.** Go to https://console.cloud.google.com/projectcreate and create a project
@@ -29,8 +33,8 @@ so it needs `GAME_REPO_TOKEN` but no YouTube secrets.
 5. **Mint the refresh token on your own computer** (not in CI):
    ```sh
    python3 -m venv .venv && . .venv/bin/activate
-   pip install -r tools/youtube/requirements.txt   # or just: pip install google-auth-oauthlib
-   python3 tools/youtube/mint_refresh_token.py ~/Downloads/client_secret_XXXX.json
+   pip install -r .github/youtube/requirements.txt   # or just: pip install google-auth-oauthlib
+   python3 .github/youtube/mint_refresh_token.py ~/Downloads/client_secret_XXXX.json
    ```
    A browser opens. Sign in with the Google account that owns or manages **@ProminentGame**, and when asked
    to choose an account or channel, **pick the @ProminentGame channel** (not a personal channel). Allow
