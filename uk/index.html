@@ -18,8 +18,8 @@
 </script>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Prominent Game — Tilecharm і Glidevane: ігри-головоломки для Android</title>
-<meta name="description" content="Невеликі вдумливі головоломки для Android: Tilecharm і Glidevane.">
+<title>Prominent Game — Tilecharm, Glidevane і Comet Hop</title>
+<meta name="description" content="Невеликі вдумливі головоломки для Android: Tilecharm, Glidevane, і Comet Hop у закритому тестуванні.">
 <link rel="canonical" href="https://prominentgame.com/uk/">
 <link rel="alternate" hreflang="en" href="https://prominentgame.com/">
 <link rel="alternate" hreflang="uk" href="https://prominentgame.com/uk/">
@@ -29,17 +29,17 @@
 <meta property="og:locale" content="uk_UA">
 <meta property="og:locale:alternate" content="en_US">
 <meta property="og:url" content="https://prominentgame.com/uk/">
-<meta property="og:title" content="Prominent Game — Tilecharm і Glidevane: ігри-головоломки для Android">
-<meta property="og:description" content="Невеликі вдумливі головоломки для Android: Tilecharm і Glidevane.">
+<meta property="og:title" content="Prominent Game — Tilecharm, Glidevane і Comet Hop">
+<meta property="og:description" content="Невеликі вдумливі головоломки для Android: Tilecharm, Glidevane, і Comet Hop у закритому тестуванні.">
 <meta property="og:image" content="https://prominentgame.com/og-card.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="Prominent Game: Tilecharm і Glidevane">
+<meta property="og:image:alt" content="Prominent Game: Tilecharm, Glidevane і Comet Hop">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://prominentgame.com/og-card.png">
-<meta name="twitter:image:alt" content="Prominent Game: Tilecharm і Glidevane">
-<meta name="twitter:title" content="Prominent Game — Tilecharm і Glidevane: ігри-головоломки для Android">
-<meta name="twitter:description" content="Невеликі вдумливі головоломки для Android: Tilecharm і Glidevane.">
+<meta name="twitter:image:alt" content="Prominent Game: Tilecharm, Glidevane і Comet Hop">
+<meta name="twitter:title" content="Prominent Game — Tilecharm, Glidevane і Comet Hop">
+<meta name="twitter:description" content="Невеликі вдумливі головоломки для Android: Tilecharm, Glidevane, і Comet Hop у закритому тестуванні.">
 <meta name="theme-color" content="#2B2340">
 <link rel="icon" type="image/png" href="/favicon.png">
 <script type="application/ld+json">
@@ -72,18 +72,22 @@ radial-gradient(ellipse at top,#3a2f58 0%,var(--ink) 45%,#120e1d 100%) fixed}
 header{padding:80px 0 40px;text-align:center}
 header h1{margin:0;font-weight:800;font-size:clamp(28px,5vw,42px);letter-spacing:.5px}
 header p{margin:8px 0 0;color:var(--muted)}
-.games{display:grid;grid-template-columns:1fr 1fr;gap:32px;padding:24px 0 40px}
+.games{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(280px,100%),1fr));gap:32px;padding:24px 0 40px}
 html{scroll-behavior:smooth}
 .lang{display:flex;justify-content:flex-end;gap:6px;align-items:center;padding:16px 0 0;font-size:14px;font-weight:700;color:var(--muted)}
 .lang a{color:var(--muted);text-decoration:none;padding:2px 6px;border-radius:6px}.lang a:hover{color:var(--text)}.lang a[aria-current]{color:var(--gold)}
 header{padding-top:48px}
 @media(max-width:700px){.games{grid-template-columns:1fr;gap:28px}header{padding:56px 0 24px}}
-.card{background:#ffffff0d;border:1px solid #ffffff1f;border-radius:20px;padding:32px;display:flex;flex-direction:column;gap:16px}
+.card{background:#ffffff0d;border:1px solid #ffffff1f;border-radius:20px;padding:32px;display:flex;flex-direction:column;gap:16px;min-width:0}
 .tc{background:linear-gradient(160deg,#2B2340,#1c1630);border-color:#D9A44166}.tc .badge{font-weight:700;border-color:#D9A441;color:#D9A441}.tc h2,.tc h2 a{color:#F3D9A0;text-decoration:none}.tc h2 a:hover{text-decoration:underline}
 .gv{background:linear-gradient(170deg,#0D0B2B 0%,#2A1F5C 55%,#5B2E6E 100%);border-color:#F2C46D55}.gv .badge{font-weight:700;border-color:#F2C46D;color:#F2C46D}.gv h2,.gv h2 a{color:#FF8A7A;text-decoration:none}.gv h2 a:hover{text-decoration:underline}.gv .feat{color:#F7C6D9}.gv a{color:#E3CCFF}
+.ch{background:linear-gradient(160deg,#2B2340,#1c1630);border-color:#D9A44166}.ch .badge{font-weight:700;border-color:#D9A441;color:#D9A441}.ch h2{color:#F3D9A0;white-space:nowrap}
+.ch .pills{flex-wrap:wrap;gap:6px}
+.ch .badge,.ch .beta{font-size:12px;padding:3px 10px;white-space:nowrap;line-height:1.2}
+@media(max-width:700px){.ch{padding:24px 12px}.ch .pills{flex-wrap:wrap;gap:4px;max-width:100%;min-width:0}.ch .badge,.ch .beta{font-size:10px;padding:3px 6px;max-width:100%;box-sizing:border-box}}
 .pills{display:flex;flex-wrap:wrap;gap:10px;align-items:center}.pills .badge{align-self:auto}
 .beta{display:inline-block;border-radius:999px;padding:4px 14px;font-size:13px;font-weight:700;text-decoration:none;color:#1c1630}.beta:hover{filter:brightness(1.1)}
-.tc .beta{background:#D9A441;color:#2B2340}.gv .beta{background:#FF8A7A;color:#0D0B2B}
+.tc .beta{background:#D9A441;color:#2B2340}.gv .beta{background:#FF8A7A;color:#0D0B2B}.ch .beta{background:#D9A441;color:#2B2340}
 .pp{font-size:13px;margin:4px 0 0}
 .gp{display:inline-block;line-height:0;border-radius:8px}.gp:focus-visible{outline:2px solid #F3D9A0;outline-offset:2px}
 .card .gp img{height:auto;border-radius:0;box-shadow:none}.card .gp img.en{width:160px;margin:-4px 0 -4px -10px}.card .gp img.ua{width:140px}
@@ -95,11 +99,27 @@ header{padding-top:48px}
 .badge{font-weight:700;align-self:flex-start;border:1px solid var(--gold);color:var(--gold);border-radius:999px;padding:4px 12px;font-size:13px;font-weight:600}
 a{color:#c9b8ff}
 footer{border-top:1px solid #ffffff1a;padding:24px 0 40px;text-align:center;color:var(--muted);font-size:14px}
+.testers{margin:0 0 72px;padding:36px 32px;background:linear-gradient(165deg,#ffffff12,#ffffff06);border:1px solid #ffffff26;border-radius:20px;scroll-margin-top:24px}
+.testers h2{margin:0 0 6px;font-size:clamp(24px,4vw,30px);font-weight:800;color:#F3D9A0}
+.testers .lead{margin:0 0 24px;color:var(--muted)}
+.steps{list-style:none;margin:0;padding:0;display:grid;gap:16px;counter-reset:s}
+.steps li{counter-increment:s;display:grid;grid-template-columns:40px 1fr;gap:14px;align-items:start;background:#120e1d66;border:1px solid #ffffff14;border-radius:16px;padding:18px}
+.steps li::before{content:counter(s);width:40px;height:40px;border-radius:50%;background:var(--gold);color:var(--ink);font-weight:800;display:flex;align-items:center;justify-content:center}
+.steps h3{margin:0 0 4px;font-size:18px;font-weight:800}.steps p{margin:0}
+.steps .pills{margin-top:10px}.steps .beta{background:#D9A441;color:#2B2340}
+.note{margin:22px 0 0;color:var(--muted);font-size:15px}
+.share{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin:18px 0 0}
+.share .label{color:var(--muted);font-size:15px}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.share .beta{background:#D9A441;color:#2B2340;border:0;font:inherit;font-size:13px;font-weight:700;line-height:inherit;cursor:pointer}
+.share .beta.fb{background:#ffffff1f;color:var(--text);border:1px solid #ffffff33}
+.share .beta:focus-visible{outline:2px solid #F3D9A0;outline-offset:2px}
+.share [hidden]{display:none}
 .feedback{margin:0 0 72px;padding:28px 32px;background:#ffffff0a;border:1px solid #ffffff1f;border-radius:20px;text-align:center;scroll-margin-top:24px}
 .feedback h2{margin:0 0 6px;font-size:clamp(22px,3.5vw,26px);font-weight:800;color:#F3D9A0}
 .feedback p{margin:0 auto;max-width:620px;color:var(--muted)}
 .feedback .pills{justify-content:center;margin-top:16px}.feedback .beta{background:#D9A441;color:#2B2340}.feedback .beta.alt{background:#ffffff1f;color:var(--text);border:1px solid #ffffff33}
-@media(max-width:700px){.feedback{padding:24px 18px;margin-bottom:56px}}
+@media(max-width:700px){.testers{padding:26px 18px;margin-bottom:56px}.feedback{padding:24px 18px;margin-bottom:56px}.steps li{grid-template-columns:32px 1fr;gap:12px;padding:16px}.steps li::before{width:32px;height:32px}}
 .consent{position:fixed;left:12px;right:12px;bottom:12px;z-index:50;max-width:640px;margin:0 auto;display:flex;flex-wrap:wrap;align-items:center;gap:12px 16px;padding:14px 18px;background:#1c1630f2;border:1px solid #ffffff26;border-radius:16px;box-shadow:0 8px 28px #0009;font-size:14px;line-height:1.5;color:var(--text)}
 .consent[hidden]{display:none}
 .consent p{margin:0;flex:1 1 260px}
@@ -116,7 +136,7 @@ picture{display:block;line-height:0}.top picture{flex:0 0 auto}
 <nav class="lang" aria-label="Мова"><a href="/" hreflang="en" lang="en">EN</a><span aria-hidden="true">|</span><a href="/uk/" hreflang="uk" lang="uk" aria-current="page">УК</a></nav>
 <header>
 <h1>Невеликі вдумливі головоломки</h1>
-<p>Tilecharm і Glidevane вже в Google Play.</p>
+<p>Tilecharm і Glidevane вже в Google Play. Comet Hop — у закритому тестуванні.</p>
 </header>
 <main class="games">
 <article class="card tc">
@@ -133,11 +153,35 @@ picture{display:block;line-height:0}.top picture{flex:0 0 auto}
 <div class="pills"><a class="gp" href="https://play.google.com/store/apps/details?id=com.glidevane.game" target="_blank" rel="noopener"><img class="ua" src="https://play.google.com/intl/en_us/badges/static/images/badges/ua_badge_web_generic.png" alt="Завантажити з Google Play" width="646" height="250"></a></div>
 <p class="pp"><a href="/uk/glidevane/">Про гру</a> · <a href="https://prominentgame.com/glidevane-legal/privacy-policy.html">Політика конфіденційності (англ.)</a></p>
 </article>
+<article class="card ch" id="comethop">
+<div class="top"><picture><source srcset="/img/comethop.webp" type="image/webp"><img src="/img/comethop.png" alt="Іконка Comet Hop" width="88" height="88" loading="lazy"></picture><h2>Comet Hop</h2></div>
+<p class="pitch">Запускай комету крізь 6 світів справжньої гравітації і збирай три зірки за найменше стрибків.</p>
+<p class="feat">6 світів · Щоденна головоломка</p>
+<div class="pills"><span class="badge">Закрите тестування</span><a class="beta" href="https://groups.google.com/g/prominenttestets" target="_blank" rel="noopener">Приєднатися до закритого тесту</a></div>
+<p class="pp"><a href="https://prominentgame.com/glidevane-legal/comethop-privacy-policy.html">Політика конфіденційності (англ.)</a></p>
+</article>
 </main>
+<section class="testers" id="beta" aria-labelledby="beta-title">
+<h2 id="beta-title">Долучайтеся до закритого тестування</h2>
+<p class="lead">Допоможіть нам випустити Comet Hop у Google Play. Усе налаштування займе близько двох хвилин.</p>
+<ol class="steps">
+<li><div><h3>Приєднайтеся до групи Google</h3><p>Використовуйте особистий акаунт Gmail — той самий, що й на вашому телефоні. Робочі та навчальні акаунти часто блокуються.</p><div class="pills"><a class="beta" href="https://groups.google.com/g/prominenttestets" target="_blank" rel="noopener">Приєднатися до групи</a></div></div></li>
+<li><div><h3>Підтвердьте участь на сторінці тестування</h3><p>Використовуйте той самий акаунт Google, з яким приєдналися до групи.</p><div class="pills"><a class="beta" href="https://play.google.com/apps/testing/com.prominentgame.comethop" target="_blank" rel="noopener">Тестування Comet Hop</a></div></div></li>
+<li><div><h3>Установіть, грайте й залишайтеся в тестуванні 14 днів</h3><p>Установіть Comet Hop з Google Play, відкривайте гру раз на кілька днів і не виходьте з тестування щонайменше 14 днів. Google вимагає 14 днів закритого тестування, перш ніж гра стане доступна всім.</p></div></li>
+</ol>
+<p class="note">Знайшли помилку чи маєте ідею? Будемо раді вашим відгукам і знімкам екрана на <a href="mailto:prominentgamedev@gmail.com">prominentgamedev@gmail.com</a>. Дякуємо за допомогу!</p>
+<div class="share" aria-label="Поділитися цією сторінкою">
+<span class="label">Знаєте когось, хто захоче потестувати?</span>
+<button type="button" class="beta" id="share-btn" hidden>Поділитися</button>
+<button type="button" class="beta" id="copy-btn" hidden>Копіювати посилання</button>
+<a class="beta fb" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fprominentgame.com%2Fuk%2F" target="_blank" rel="noopener noreferrer">Поділитися у Facebook</a>
+<span class="sr" id="copy-status" role="status" aria-live="polite"></span>
+</div>
+</section>
 <section class="feedback" id="feedback" aria-labelledby="feedback-title">
 <h2 id="feedback-title">Відгуки</h2>
 <p>Ми читаємо кожне повідомлення. Розкажіть, що вам подобається, що здається складним і що ви хотіли б побачити далі. Відгук у Google Play теж дуже допоможе!</p>
-<div class="pills"><a class="beta" href="mailto:prominentgamedev@gmail.com?subject=%D0%92%D1%96%D0%B4%D0%B3%D1%83%D0%BA">Написати на prominentgamedev@gmail.com</a></div>
+<div class="pills"><a class="beta" href="#beta">Приєднатися до закритого тесту</a><a class="beta alt" href="mailto:prominentgamedev@gmail.com?subject=%D0%92%D1%96%D0%B4%D0%B3%D1%83%D0%BA">Написати на prominentgamedev@gmail.com</a></div>
 </section>
 <footer>
 <p>Контакти: <a href="mailto:prominentgamedev@gmail.com">prominentgamedev@gmail.com</a> · <a href="https://www.youtube.com/@ProminentGame" target="_blank" rel="noopener">YouTube</a></p>
@@ -145,6 +189,25 @@ picture{display:block;line-height:0}.top picture{flex:0 0 auto}
 <p>© 2026 Prominent Game</p>
 </footer>
 </div>
+<script>
+(function(){
+var url='https://prominentgame.com/uk/',title=document.title;
+var shareBtn=document.getElementById('share-btn'),copyBtn=document.getElementById('copy-btn'),status=document.getElementById('copy-status');
+if(!shareBtn||!copyBtn)return;
+if(navigator.share){
+shareBtn.hidden=false;
+shareBtn.addEventListener('click',function(){navigator.share({title:title,url:url}).catch(function(){});});
+}else{
+copyBtn.hidden=false;
+var t;
+function done(){copyBtn.textContent='Скопійовано';status.textContent='Посилання скопійовано';clearTimeout(t);t=setTimeout(function(){copyBtn.textContent='Копіювати посилання';status.textContent='';},2000);}
+function fallback(){var a=document.createElement('textarea');a.value=url;a.setAttribute('readonly','');a.style.position='fixed';a.style.opacity='0';document.body.appendChild(a);a.select();try{document.execCommand('copy');done();}catch(e){}document.body.removeChild(a);}
+copyBtn.addEventListener('click',function(){
+if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(url).then(done,fallback);}else{fallback();}
+});
+}
+})();
+</script>
 <div class="consent" id="consent" role="region" aria-label="Згода на cookie" hidden>
 <p>Ми використовуємо Google Analytics, щоб бачити, як відвідувачі користуються сайтом. Ви не проти?</p>
 <div class="btns"><button type="button" id="consent-accept">Прийняти</button><button type="button" id="consent-decline">Відхилити</button></div>
