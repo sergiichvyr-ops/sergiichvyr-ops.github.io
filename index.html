@@ -18,8 +18,8 @@
 </script>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Prominent Game — Tilecharm &amp; Glidevane puzzle games for Android</title>
-<meta name="description" content="Small, thoughtful puzzle games for Android: Tilecharm and Glidevane.">
+<title>Prominent Game — Tilecharm, Glidevane &amp; Comet Hop</title>
+<meta name="description" content="Small, thoughtful puzzle games for Android: Tilecharm, Glidevane, and Comet Hop in closed testing.">
 <link rel="canonical" href="https://prominentgame.com/">
 <link rel="alternate" hreflang="en" href="https://prominentgame.com/">
 <link rel="alternate" hreflang="uk" href="https://prominentgame.com/uk/">
@@ -29,17 +29,17 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:locale:alternate" content="uk_UA">
 <meta property="og:url" content="https://prominentgame.com/">
-<meta property="og:title" content="Prominent Game — Tilecharm &amp; Glidevane puzzle games for Android">
-<meta property="og:description" content="Small, thoughtful puzzle games for Android: Tilecharm and Glidevane.">
+<meta property="og:title" content="Prominent Game — Tilecharm, Glidevane &amp; Comet Hop">
+<meta property="og:description" content="Small, thoughtful puzzle games for Android: Tilecharm, Glidevane, and Comet Hop in closed testing.">
 <meta property="og:image" content="https://prominentgame.com/og-card.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="Prominent Game: Tilecharm and Glidevane">
+<meta property="og:image:alt" content="Prominent Game: Tilecharm, Glidevane, and Comet Hop">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://prominentgame.com/og-card.png">
-<meta name="twitter:image:alt" content="Prominent Game: Tilecharm and Glidevane">
-<meta name="twitter:title" content="Prominent Game — Tilecharm &amp; Glidevane puzzle games for Android">
-<meta name="twitter:description" content="Small, thoughtful puzzle games for Android: Tilecharm and Glidevane.">
+<meta name="twitter:image:alt" content="Prominent Game: Tilecharm, Glidevane, and Comet Hop">
+<meta name="twitter:title" content="Prominent Game — Tilecharm, Glidevane &amp; Comet Hop">
+<meta name="twitter:description" content="Small, thoughtful puzzle games for Android: Tilecharm, Glidevane, and Comet Hop in closed testing.">
 <meta name="theme-color" content="#2B2340">
 <link rel="icon" type="image/png" href="/favicon.png">
 <script type="application/ld+json">
@@ -72,7 +72,7 @@ radial-gradient(ellipse at top,#3a2f58 0%,var(--ink) 45%,#120e1d 100%) fixed}
 header{padding:80px 0 40px;text-align:center}
 header h1{margin:0;font-weight:800;font-size:clamp(28px,5vw,42px);letter-spacing:.5px}
 header p{margin:8px 0 0;color:var(--muted)}
-.games{display:grid;grid-template-columns:1fr 1fr;gap:32px;padding:24px 0 40px}
+.games{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:32px;padding:24px 0 40px}
 html{scroll-behavior:smooth}
 .lang{display:flex;justify-content:flex-end;gap:6px;align-items:center;padding:16px 0 0;font-size:14px;font-weight:700;color:var(--muted)}
 .lang a{color:var(--muted);text-decoration:none;padding:2px 6px;border-radius:6px}.lang a:hover{color:var(--text)}.lang a[aria-current]{color:var(--gold)}
@@ -81,9 +81,10 @@ header{padding-top:48px}
 .card{background:#ffffff0d;border:1px solid #ffffff1f;border-radius:20px;padding:32px;display:flex;flex-direction:column;gap:16px}
 .tc{background:linear-gradient(160deg,#2B2340,#1c1630);border-color:#D9A44166}.tc .badge{font-weight:700;border-color:#D9A441;color:#D9A441}.tc h2,.tc h2 a{color:#F3D9A0;text-decoration:none}.tc h2 a:hover{text-decoration:underline}
 .gv{background:linear-gradient(170deg,#0D0B2B 0%,#2A1F5C 55%,#5B2E6E 100%);border-color:#F2C46D55}.gv .badge{font-weight:700;border-color:#F2C46D;color:#F2C46D}.gv h2,.gv h2 a{color:#FF8A7A;text-decoration:none}.gv h2 a:hover{text-decoration:underline}.gv .feat{color:#F7C6D9}.gv a{color:#E3CCFF}
+.ch{background:linear-gradient(160deg,#2B2340,#1c1630);border-color:#D9A44166}.ch .badge{font-weight:700;border-color:#D9A441;color:#D9A441}.ch h2{color:#F3D9A0}
 .pills{display:flex;flex-wrap:wrap;gap:10px;align-items:center}.pills .badge{align-self:auto}
 .beta{display:inline-block;border-radius:999px;padding:4px 14px;font-size:13px;font-weight:700;text-decoration:none;color:#1c1630}.beta:hover{filter:brightness(1.1)}
-.tc .beta{background:#D9A441;color:#2B2340}.gv .beta{background:#FF8A7A;color:#0D0B2B}
+.tc .beta{background:#D9A441;color:#2B2340}.gv .beta{background:#FF8A7A;color:#0D0B2B}.ch .beta{background:#D9A441;color:#2B2340}
 .pp{font-size:13px;margin:4px 0 0}
 .gp{display:inline-block;line-height:0;border-radius:8px}.gp:focus-visible{outline:2px solid #F3D9A0;outline-offset:2px}
 .card .gp img{height:auto;border-radius:0;box-shadow:none}.card .gp img.en{width:160px;margin:-4px 0 -4px -10px}.card .gp img.ua{width:140px}
@@ -95,11 +96,27 @@ header{padding-top:48px}
 .badge{font-weight:700;align-self:flex-start;border:1px solid var(--gold);color:var(--gold);border-radius:999px;padding:4px 12px;font-size:13px;font-weight:600}
 a{color:#c9b8ff}
 footer{border-top:1px solid #ffffff1a;padding:24px 0 40px;text-align:center;color:var(--muted);font-size:14px}
+.testers{margin:0 0 72px;padding:36px 32px;background:linear-gradient(165deg,#ffffff12,#ffffff06);border:1px solid #ffffff26;border-radius:20px;scroll-margin-top:24px}
+.testers h2{margin:0 0 6px;font-size:clamp(24px,4vw,30px);font-weight:800;color:#F3D9A0}
+.testers .lead{margin:0 0 24px;color:var(--muted)}
+.steps{list-style:none;margin:0;padding:0;display:grid;gap:16px;counter-reset:s}
+.steps li{counter-increment:s;display:grid;grid-template-columns:40px 1fr;gap:14px;align-items:start;background:#120e1d66;border:1px solid #ffffff14;border-radius:16px;padding:18px}
+.steps li::before{content:counter(s);width:40px;height:40px;border-radius:50%;background:var(--gold);color:var(--ink);font-weight:800;display:flex;align-items:center;justify-content:center}
+.steps h3{margin:0 0 4px;font-size:18px;font-weight:800}.steps p{margin:0}
+.steps .pills{margin-top:10px}.steps .beta{background:#D9A441;color:#2B2340}
+.note{margin:22px 0 0;color:var(--muted);font-size:15px}
+.share{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin:18px 0 0}
+.share .label{color:var(--muted);font-size:15px}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.share .beta{background:#D9A441;color:#2B2340;border:0;font:inherit;font-size:13px;font-weight:700;line-height:inherit;cursor:pointer}
+.share .beta.fb{background:#ffffff1f;color:var(--text);border:1px solid #ffffff33}
+.share .beta:focus-visible{outline:2px solid #F3D9A0;outline-offset:2px}
+.share [hidden]{display:none}
 .feedback{margin:0 0 72px;padding:28px 32px;background:#ffffff0a;border:1px solid #ffffff1f;border-radius:20px;text-align:center;scroll-margin-top:24px}
 .feedback h2{margin:0 0 6px;font-size:clamp(22px,3.5vw,26px);font-weight:800;color:#F3D9A0}
 .feedback p{margin:0 auto;max-width:620px;color:var(--muted)}
 .feedback .pills{justify-content:center;margin-top:16px}.feedback .beta{background:#D9A441;color:#2B2340}.feedback .beta.alt{background:#ffffff1f;color:var(--text);border:1px solid #ffffff33}
-@media(max-width:700px){.feedback{padding:24px 18px;margin-bottom:56px}}
+@media(max-width:700px){.testers{padding:26px 18px;margin-bottom:56px}.feedback{padding:24px 18px;margin-bottom:56px}.steps li{grid-template-columns:32px 1fr;gap:12px;padding:16px}.steps li::before{width:32px;height:32px}}
 .consent{position:fixed;left:12px;right:12px;bottom:12px;z-index:50;max-width:640px;margin:0 auto;display:flex;flex-wrap:wrap;align-items:center;gap:12px 16px;padding:14px 18px;background:#1c1630f2;border:1px solid #ffffff26;border-radius:16px;box-shadow:0 8px 28px #0009;font-size:14px;line-height:1.5;color:var(--text)}
 .consent[hidden]{display:none}
 .consent p{margin:0;flex:1 1 260px}
@@ -116,7 +133,7 @@ picture{display:block;line-height:0}.top picture{flex:0 0 auto}
 <nav class="lang" aria-label="Language"><a href="/" hreflang="en" lang="en" aria-current="page">EN</a><span aria-hidden="true">|</span><a href="/uk/" hreflang="uk" lang="uk">УК</a></nav>
 <header>
 <h1>Small, thoughtful puzzle games</h1>
-<p>Tilecharm and Glidevane are out now on Google Play.</p>
+<p>Tilecharm and Glidevane are out now on Google Play. Comet Hop is in closed testing.</p>
 </header>
 <main class="games">
 <article class="card tc">
@@ -133,11 +150,33 @@ picture{display:block;line-height:0}.top picture{flex:0 0 auto}
 <div class="pills"><a class="gp" href="https://play.google.com/store/apps/details?id=com.glidevane.game" target="_blank" rel="noopener"><img class="en" src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png" alt="Get it on Google Play" width="646" height="250"></a></div>
 <p class="pp"><a href="/glidevane/">About the game</a> · <a href="https://prominentgame.com/glidevane-legal/privacy-policy.html">Privacy policy</a></p>
 </article>
+<article class="card ch" id="comethop">
+<div class="top"><picture><source srcset="/img/comethop.webp" type="image/webp"><img src="/img/comethop.png" alt="Comet Hop icon" width="88" height="88" loading="lazy"></picture><h2>Comet Hop</h2></div>
+<p class="pitch">Comet Hop. Slingshot a comet across 6 worlds of real gravity and beat par in one tap. 120 levels plus a Daily puzzle. Now in closed testing on Android.</p>
+<div class="pills"><span class="badge">Closed testing</span><a class="beta" href="https://groups.google.com/g/prominenttestets" target="_blank" rel="noopener">Join closed test</a></div>
+</article>
 </main>
+<section class="testers" id="beta" aria-labelledby="beta-title">
+<h2 id="beta-title">Become a closed tester</h2>
+<p class="lead">Help us get Comet Hop onto Google Play. It takes about two minutes to set up.</p>
+<ol class="steps">
+<li><div><h3>Join the Google Group</h3><p>Use a personal Gmail account, the same one that&rsquo;s on your phone. Work or school accounts are often blocked.</p><div class="pills"><a class="beta" href="https://groups.google.com/g/prominenttestets" target="_blank" rel="noopener">Join the tester group</a></div></div></li>
+<li><div><h3>Opt in on the testing page</h3><p>Use the same Google account you joined the group with.</p><div class="pills"><a class="beta" href="https://play.google.com/apps/testing/com.prominentgame.comethop" target="_blank" rel="noopener">Comet Hop testing page</a></div></div></li>
+<li><div><h3>Install, play, and stay opted in for 14 days</h3><p>Install Comet Hop from Google Play, open it every few days, and stay opted in for at least 14 days. Google requires 14 days of closed testing before the game can launch publicly.</p></div></li>
+</ol>
+<p class="note">Found a bug or have an idea? We&rsquo;d love your feedback and screenshots at <a href="mailto:prominentgamedev@gmail.com">prominentgamedev@gmail.com</a>. Thank you for helping!</p>
+<div class="share" aria-label="Share this page">
+<span class="label">Know someone who&rsquo;d like to test?</span>
+<button type="button" class="beta" id="share-btn" hidden>Share</button>
+<button type="button" class="beta" id="copy-btn" hidden>Copy link</button>
+<a class="beta fb" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fprominentgame.com%2F" target="_blank" rel="noopener noreferrer">Share on Facebook</a>
+<span class="sr" id="copy-status" role="status" aria-live="polite"></span>
+</div>
+</section>
 <section class="feedback" id="feedback" aria-labelledby="feedback-title">
 <h2 id="feedback-title">Feedback</h2>
 <p>We read every message. Tell us what you love, what's tricky, or what you'd like to see next. A review on Google Play helps a lot too!</p>
-<div class="pills"><a class="beta" href="mailto:prominentgamedev@gmail.com?subject=Feedback">Email prominentgamedev@gmail.com</a></div>
+<div class="pills"><a class="beta" href="#beta">Join closed test</a><a class="beta alt" href="mailto:prominentgamedev@gmail.com?subject=Feedback">Email prominentgamedev@gmail.com</a></div>
 </section>
 <footer>
 <p>Contact: <a href="mailto:prominentgamedev@gmail.com">prominentgamedev@gmail.com</a> · <a href="https://www.youtube.com/@ProminentGame" target="_blank" rel="noopener">YouTube</a></p>
@@ -145,6 +184,25 @@ picture{display:block;line-height:0}.top picture{flex:0 0 auto}
 <p>© 2026 Prominent Game</p>
 </footer>
 </div>
+<script>
+(function(){
+var url='https://prominentgame.com/',title=document.title;
+var shareBtn=document.getElementById('share-btn'),copyBtn=document.getElementById('copy-btn'),status=document.getElementById('copy-status');
+if(!shareBtn||!copyBtn)return;
+if(navigator.share){
+shareBtn.hidden=false;
+shareBtn.addEventListener('click',function(){navigator.share({title:title,url:url}).catch(function(){});});
+}else{
+copyBtn.hidden=false;
+var t;
+function done(){copyBtn.textContent='Copied';status.textContent='Link copied';clearTimeout(t);t=setTimeout(function(){copyBtn.textContent='Copy link';status.textContent='';},2000);}
+function fallback(){var a=document.createElement('textarea');a.value=url;a.setAttribute('readonly','');a.style.position='fixed';a.style.opacity='0';document.body.appendChild(a);a.select();try{document.execCommand('copy');done();}catch(e){}document.body.removeChild(a);}
+copyBtn.addEventListener('click',function(){
+if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(url).then(done,fallback);}else{fallback();}
+});
+}
+})();
+</script>
 <div class="consent" id="consent" role="region" aria-label="Cookie consent" hidden>
 <p>We use Google Analytics to see how visitors use this site. Is that OK?</p>
 <div class="btns"><button type="button" id="consent-accept">Accept</button><button type="button" id="consent-decline">Decline</button></div>
